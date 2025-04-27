@@ -1,13 +1,11 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import FullWidth from '../../components/FullWidth.astro'
-import { Card, Pagination } from 'accessible-astro-components'
-import { Accordion, AccordionItem } from 'accessible-astro-components'
-import ContentMedia from '../components/ContentMedia.astro'
-import Features from '../components/Feature.astro'
+
+const {title = 'BYOC or DaaS'} = Astro.props;
 ---
 
-<DefaultLayout title="BYOC and DaaS">
+<DefaultLayout title={ title }>
     <section>
         <div class="container">
             <h1 class="text-center text-6xl md:text-left">
@@ -18,7 +16,7 @@ import Features from '../components/Feature.astro'
     <section class="my-8">
         <div class="container">
             <p class="text-2xl">
-                Bring Your Own Compute, or use Icebreaker's Data as a Service (DaaS) to run your queries.
+                Bring Your Own Compute, or run your SQL workloads with Icebreaker's Data as a Service (DaaS).
             </p>
         </div>
     </section>

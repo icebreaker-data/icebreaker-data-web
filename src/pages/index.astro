@@ -4,7 +4,6 @@ import Hero from '../components/Hero.astro'
 import { Card, Pagination } from 'accessible-astro-components'
 import ContentMedia from '../components/ContentMedia.astro'
 import FullWidth from '../components/FullWidth.astro'
-import { Accordion, AccordionItem } from 'accessible-astro-components'
 ---
 
 <DefaultLayout title="Home">
@@ -12,50 +11,50 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
   <FullWidth>
     <h4 class="text-4xl">Introducing Icebreaker Data</h4>
     <p class="text-xl">
-      Built on a modern, <a href="/product/stack/">composable stack</a>, Icebreaker is a new data cloud that gives exceptional price performance for your day-to-day SQL workloads. 
+      Built on a modern, <a href="/product/stack/">composable stack</a>, Icebreaker gives exceptional price performance for your day-to-day SQL workloads. 
     </p>
     <p class="text-xl">
       <strong>But Icebreaker goes much farther, where others don't go.</strong>
     </p>
     <p class="text-xl">
-      Icebreaker cuts out waste and inefficiencies. It integrates FinOps controls, so you can now do two impossible things at the same time: slash your data budget <span class="font-bold">and</span> meet your SLAs.
+      Icebreaker is a new data cloud that cuts out waste and inefficiencies. It's different because it integrates FinOps controls, so you can now do two impossible things at the same time: slash your data budget <span class="font-bold">and</span> meet your SLAs.
     </p>  
   </FullWidth>
 
   <ContentMedia imgSrc="/accessible-components.webp">
     <h2>Slash Your Data Budget</h2>
-    <p class="text-2xl">
-      Do you know how data cloud providers turn a profit? By managing and controlling compute resources: Data FinOps, if you will. 
+    <p class="text-xl">
+      Do you know how data cloud providers turn a profit? <strong>By managing and controlling compute resources.</strong> Data FinOps, if you will. 
     </p>
-    <p class="text-2xl">
+    <p class="text-xl">
       Data FinOps goes far beyond separation of storage and compute, auto-scaling, and open stacks. (All of which we embrace!) 
     </p>
-    <p class="text-2xl">
+    <p class="text-xl">
       We integrate FinOps into Icebreaker, so you can achieve financial sanity in your cloud data warehouse, datalake, or lakehouse operations.
     </p>
   </ContentMedia>
   <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
     <h2>Meet Your SLAs</h2>
-    <p class="text-2xl">
-      Data teams often meet SLAs by consuming more compute capacity than they need &mdash; just in case. When the CFO says those days are over, will your financial workloads complete on time?  
+    <p class="text-xl">
+      Data teams regularly meet SLAs by consuming more compute capacity than is actually needed. You know it's wasteful, but there are penalties when you don't fulfill your Service Level Agreements.  
     </p>
-    <p class="text-2xl">
-      Icebreaker scopes and right-sizes every query. Large (expensive) compute instances will spin up, but only when a query requires it. Smaller queries run on spare capacity or smaller instances. 
+    <p class="text-xl">
+      Icebreaker sovles this by <strong>intelligently and scoping and right-sizing every query</strong>. Large (expensive) compute instances will spin up, but only when a query requires it. Smaller queries run on spare capacity or smaller instances. 
     </p>
-    <p class="text-2xl">
+    <p class="text-xl">
       Each and every query runs &mdash; exactly as it should.
     </p>
   </ContentMedia>
   <ContentMedia imgSrc="/accessible-components.webp">
     <h2>Secure Your Tenants' Data</h2>
-    <p class="text-2xl">
-      SaaS customers naturally want to use <span class="italic">their</span> data, which is stored in <span class="italic">your</span> systems. Lots of other companies want to productize data. 
+    <p class="text-xl">
+      Your SaaS customers naturally want to use <span class="italic">their</span> data, which is stored in <span class="italic">your</span> systems. And yes, you'd love to productize data analytics. 
     </p>
-    <p class="text-2xl">
-      But you learn quickly that it is (a) too risky to share compute resources, and (b) too expensive to isolate tenant workloads by cluster.
+    <p class="text-xl">
+      But you learn quickly that it is (a) too risky to share compute resources across customers, and (b) too expensive to isolate tenant workloads by cluster.
     </p>
-    <p class="text-2xl">
-      Icebreaker resolves these problems with <span class="italic">automatic</span> query isolation. It's an elegant and simple way to dramatically reduce threat exposure. 
+    <p class="text-xl">
+      Icebreaker resolves these problems <span class="italic">automatically</span> with built-in query isolation. It's an elegant and simple way to <strong>dramatically reduce threat exposure</strong>. 
     </p>
   </ContentMedia>
 <!-- <section class=" bg-neutral-100 dark:bg-neutral-600 mt-16 py-12"> -->
@@ -67,10 +66,9 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
           What people are saying about Icebreaker.
         </p>
       </div>
-      <div class="space-content">
-        <p class="text-xl">
-          quotes go here
-      </div>
+      <Card>
+        something to say
+      </Card>
     </div>
   </FullWidth>
 </DefaultLayout>
