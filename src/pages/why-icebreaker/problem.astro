@@ -1,9 +1,6 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
-import { Card, Pagination } from 'accessible-astro-components'
-import { Accordion, AccordionItem } from 'accessible-astro-components'
-import ContentMedia from '../components/ContentMedia.astro'
-import Features from '../components/Feature.astro'
+import FullWidth from '../../components/FullWidth.astro'
 ---
 
 <DefaultLayout title="The Problem with Data Clouds">
@@ -21,14 +18,12 @@ import Features from '../components/Feature.astro'
             </p>
         </div>
     </section>
-    <section class="mt-8">
-        <div class="space-content bg-neutral-100 dark:bg-neutral-600 p-12 w-full"> 
-          <h4 class="text-4xl">heading 4</h4>
-          <p class="text-xl">
+    <FullWidth>
+        <h4 class="text-4xl">heading 4</h4>
+        <p class="text-xl">
             some text 
-          </p>
-        </div>
-    </section>
+        </p>
+    </FullWidth>
     <section class="my-8">
         <div class="container">
             <p class="text-2xl">

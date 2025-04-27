@@ -1,0 +1,33 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import FullWidth from '../components/FullWidth.astro'
+
+import { Card, Pagination } from 'accessible-astro-components'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import ContentMedia from '../components/ContentMedia.astro'
+import Features from '../components/Feature.astro'
+---
+<DefaultLayout>
+    No .space-content -- everything smooshed
+    <div class="bg-primary-100 p-8">
+        <h2 class="text-3xl font-bold">Hello World</h2>
+        <p>This is a paragraph right after the heading.</p>
+        <p>This is another paragraph after the first one.</p>
+    </div>
+
+
+With .space-content - smooth vertical rhythm
+    <div class="bg-gray-100 p-8 space-content">
+        <h2 class="text-3xl font-bold">Hello World</h2>
+        <p>This is a paragraph right after the heading.</p>
+        <p>This is another paragraph after the first one.</p>
+  </div>
+
+  <div class="container">
+    <div class="flex-container" style="display: flex;">
+        <div style="flex-grow: 1">test</div>
+        <div style="flex-grow: 3">Transformation</div>
+        <div style="flex-grow: 2">Analytics</div>
+    </div>
+  </div>
+</DefaultLayout>

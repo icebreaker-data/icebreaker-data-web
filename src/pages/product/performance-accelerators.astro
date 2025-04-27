@@ -1,5 +1,6 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import FullWidth from '../../components/FullWidth.astro'
 import { Card, Pagination } from 'accessible-astro-components'
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import ContentMedia from '../components/ContentMedia.astro'
@@ -13,25 +14,21 @@ import Features from '../components/Feature.astro'
                 Performance<br /><hr>Accelerators<hr>
             </h1>
         </div>
-            </h1>
-        </div>
     </section>
-    <section class="my-8">
+    <section class="mt-8">
         <div class="container">
             <p class="text-2xl">
-                SQL queries need return results quickly, SLA or no SLA.
+                SQL queries must return results quickly, regardless of the SLA.
             </p>
         </div>
     </section>
+    <FullWidth>
+        <h4 class="text-4xl">heading 4</h4>
+            <p class="text-xl">
+        some text 
+        </p>
+    </FullWidth>
     <section class="mt-8">
-        <div class="space-content bg-neutral-100 dark:bg-neutral-600 p-12 w-full"> 
-          <h4 class="text-4xl">heading 4</h4>
-          <p class="text-xl">
-            some text 
-          </p>
-        </div>
-    </section>
-    <section class="my-8">
         <div class="container">
             <p class="text-2xl">
                 text
