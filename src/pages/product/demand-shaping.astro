@@ -1,0 +1,38 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import FullWidth from '../../components/FullWidth.astro'
+import { Card, Pagination } from 'accessible-astro-components'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import ContentMedia from '../components/ContentMedia.astro'
+import Features from '../components/Feature.astro'
+---
+
+<DefaultLayout title="Demand Shaping">
+    <section>
+        <div class="container">
+            <h1 class="text-center text-6xl md:text-left">
+                Demand Shaping<hr>
+            </h1>
+        </div>
+    </section>
+    <section class="mt-8">
+        <div class="container">
+            <p class="text-2xl">
+                Demand Shaping
+            </p>
+        </div>
+    </section>
+    <FullWidth>
+        <h4 class="text-4xl">heading 4</h4>
+        <p class="text-xl">
+            some text 
+        </p>
+    </FullWidth>
+    <section class="mt-8">
+        <div class="container p-8">
+            <p class="text-2xl">
+                text here's some more text etc 
+            </p>
+        </div>
+    </section>
+</DefaultLayout>

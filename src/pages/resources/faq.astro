@@ -1,0 +1,66 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import FullWidth from '../../components/FullWidth.astro'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+---
+
+<DefaultLayout title="FAQ">
+    <div class="container">
+      <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-[2fr_1fr]">
+        <div class="flex flex-col items-center gap-8 md:items-start">
+          <h1 class="text-center text-6xl md:text-left leading-relaxed">
+            You have questions.<hr>We have answers.
+          </h1>
+          <p class="text-2xl text-center md:text-left">
+            Do you have another question about Icebreaker? <br />
+            <a class="text-primary-500" href="/contact">Let us know!</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  <FullWidth>
+    <div class="container grid grid-cols-1 gap-12 md:grid-cols-2">
+      <div class="flex flex-col items-start gap-4">
+        <h2 class="text-6xl">FAQ</h2>
+        <p class="text-2xl">
+          Icebreaker is recognizable in many ways, but we defintely do things differently.
+        </p>
+        <p class="text-2xl">
+          Here are some of the most common questions we get.
+        </p>
+        <a class="button" href="/faq">Contact support team</a>
+      </div>
+      <div class="space-content">
+        <Accordion>
+          <AccordionItem name="exclusive" title="Question?" open>
+            <p>
+              answer
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="Question?">
+            <p>
+              answer
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="Question?">
+            <p>
+              answer
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="Question?">
+            <p>
+              answer
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="Question?">
+            <p>
+              answer
+            </p>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div>
+  </FullWidth>
+
+</DefaultLayout>

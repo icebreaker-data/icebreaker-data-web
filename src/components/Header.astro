@@ -7,38 +7,76 @@ import { Icon } from 'astro-icon/components'
 <header>
   <SkipLink />
   <Navigation>
-    <li class="menu-item">
-      <a href="/">Home</a>
-    </li>
-    <li class="menu-item">
-      <a href="/blog/">Blog</a>
-    </li>
-    <li class="menu-item">
-      <a href="/portfolio/">Portfolio</a>
-    </li>
     <li class="menu-item has-dropdown">
-      <button aria-haspopup="true" aria-expanded="false">Example Pages</button>
+      <button aria-haspopup="true" aria-expanded="false">Why Icebreaker</button>
       <ul class="dropdown-menu">
         <li class="submenu-item">
-          <a href="/mdx-page/">MDX Page</a>
+          <a href="/why-icebreaker/problem/">The Problem With Data Clouds</a>
         </li>
         <li class="submenu-item">
-          <a href="/markdown-page/">Markdown Page</a>
+          <a href="/why-icebreaker/data-finops-builtin/">FinOps Built-In</a>
         </li>
         <li class="submenu-item">
-          <a href="/accessible-components">Accessible Components</a>
+          <a href="/why-icebreaker/meet-slas/">SLA Guarantees -- Guaranteed</a>
         </li>
+        <li class="submenu-item">
+          <a href="/why-icebreaker/multitenant-data-security/">Multitenant Data Security</a>
       </ul>
     </li>
-    <li class="menu-item">
-      <a href="https://accessible-astro.incluud.dev/" rel="external">Docs</a>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">Product</button>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <a href="/product/stack/">The Tech Stack</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/product/query-isolation/">Query Isolation</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/product/demand-shaping/">Demand Shaping</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/product/performance-accelerators/">Performance Accelerators</a>
+        <li class="submenu-item">
+          <a href="/product/performance-metrics/">Performance Metrics</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/product/byoc-daas/">BYOC or DaaS</a>
+      </ul>
     </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">Resources</button>
+      <ul class="dropdown-menu">
+        <li class="submenu-item">
+          <a href="/resources/demo/">Demo</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/resources/faq/">FAQ</a>
+        <li class="submenu-item">
+          <a href="/resources/whitepaper/">Whitepaper</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/blog/">Blog</a>
+        </li>
+        <li class="submenu-item">
+          <a href="https://accessible-astro.incluud.dev/" rel="external">Docs</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/accessible-components">** accessible components</a>
+        </li>
+      </ul>
+    </li>    
+    <li class="menu-item">
+      <a href="/about/">About</a>
+    </li>
+<!--
     <li class="menu-item type-icon">
       <a href="https://github.com/markteekman/accessible-astro-starter" title="Go to the GitHub page">
         <Icon name="ion:logo-github" />
       </a>
     </li>
-  </Navigation>
+ -->
+    </Navigation>
 </header>
 
 <style lang="scss" is:global>

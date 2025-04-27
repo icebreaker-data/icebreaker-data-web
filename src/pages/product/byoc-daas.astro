@@ -1,0 +1,38 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import FullWidth from '../../components/FullWidth.astro'
+
+const {title = 'BYOC or DaaS'} = Astro.props;
+---
+
+<DefaultLayout title={ title }>
+    <section>
+        <div class="container">
+            <h1 class="text-center text-6xl md:text-left">
+                BYOC<br /><hr>or Use Ours<hr>
+            </h1>
+        </div>
+    </section>
+    <section class="my-8">
+        <div class="container">
+            <p class="text-2xl">
+                Bring Your Own Compute, or run your SQL workloads with Icebreaker's Data as a Service (DaaS).
+            </p>
+        </div>
+    </section>
+    <FullWidth>
+        <div class="space-content"> 
+          <h4 class="text-4xl">heading 4</h4>
+          <p class="text-xl">
+            some text 
+          </p>
+        </div>
+    </FullWidth>
+    <section class="mt-8">
+        <div class="container">
+            <p class="text-2xl">
+                text
+            </p>
+        </div>
+    </section>
+</DefaultLayout>
