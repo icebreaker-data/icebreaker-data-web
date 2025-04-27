@@ -3,25 +3,25 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
 import Hero from '../components/Hero.astro'
 import { Card, Pagination } from 'accessible-astro-components'
 import ContentMedia from '../components/ContentMedia.astro'
+import FullWidth from '../components/FullWidth.astro'
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 ---
 
 <DefaultLayout title="Home">
   <Hero />
-  <section class="mt-8">
-    <div class="space-content bg-neutral-100 dark:bg-neutral-600 py-12 px-40">
-      <h4 class="text-4xl">Introducing Icebreaker Data</h4>
-      <p class="text-xl">
-        Built on a modern, <a href="/product/stack/">composable stack</a>, Icebreaker is a new data cloud that gives exceptional price performance for your day-to-day SQL workloads. 
-      </p>
-      <p class="text-xl">
-        <strong>But Icebreaker goes much farther, where others don't go.</strong>
-      </p>
-      <p class="text-xl">
-        Icebreaker cuts out waste and inefficiencies. It integrates FinOps controls, so you can now do two impossible things at the same time: slash your data budget <span class="font-bold">and</span> meet your SLAs.
-      </p>   
-    </div>
-  </section>
+  <FullWidth>
+    <h4 class="text-4xl">Introducing Icebreaker Data</h4>
+    <p class="text-xl">
+      Built on a modern, <a href="/product/stack/">composable stack</a>, Icebreaker is a new data cloud that gives exceptional price performance for your day-to-day SQL workloads. 
+    </p>
+    <p class="text-xl">
+      <strong>But Icebreaker goes much farther, where others don't go.</strong>
+    </p>
+    <p class="text-xl">
+      Icebreaker cuts out waste and inefficiencies. It integrates FinOps controls, so you can now do two impossible things at the same time: slash your data budget <span class="font-bold">and</span> meet your SLAs.
+    </p>  
+  </FullWidth>
+
   <ContentMedia imgSrc="/accessible-components.webp">
     <h2>Slash Your Data Budget</h2>
     <p class="text-2xl">
