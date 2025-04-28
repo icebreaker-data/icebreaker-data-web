@@ -25,6 +25,7 @@ Add VS Code extensions:
 - Prettier
 - Tailwind CSS IntelliSense
 - ESLint
+- Markdown Preview Enhanced
 - JavaScript and TypeScript: not needed as VS Code has this built-in
 
 Also add from the terminal:
@@ -67,4 +68,21 @@ Now, merge main into your branch.
 
 ``` bash
 git merge main
+```
+
+### Show git location (quick hack)
+
+From [Medium and other places:](https://thucnc.medium.com/how-to-show-current-git-branch-with-colors-in-bash-prompt-380d05a24745)
+
+Add this to `~/.bashrc`:
+``` text
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+```
+
+Then source it:
+``` bash
+source ~/.bashrc
 ```

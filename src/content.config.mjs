@@ -1,18 +1,16 @@
 // 1. Import utilities from `astro:content`
-import { defineCollection, z } from 'astro:content'
+import { defineCollection, z } from 'astro:content';
 
-// 2. Import loader(s)
-import { glob } from 'astro/loaders'
+// 2. Define your collection(s)
 
-// 3. Define your collection(s)
-const projects = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
+const quotes = defineCollection({
   schema: z.object({
-    title: z.string(),
-    author: z.string(),
-    description: z.string(),
+    quote: z.string(),
+    person: z.string().optional(),
+    organization: z.string().optional(),
+    jobTitle: z.string().optional(), // Made optional in case some quotes don't have job titles
   }),
-})
+});
 
-// 4. Export a single `collections` object to register you collection(s)
-export const collections = { projects }
+// 3. Export a single `collections` object to register your collection(s)
+export const collections = { quotes };
