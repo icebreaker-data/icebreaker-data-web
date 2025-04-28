@@ -40,29 +40,28 @@ npm install prettier_plugin_tailwindcss
 ``` bash
 git checkout main
 git pull
-git checkout -b branchname
+git checkout -b branchname01
 ```
 When done with the work:
 - add files, commit, push
 - PR, merge to main
 - delete branch locally and on GitHub:
 ``` bash
-git branch -d branchname
-git push origin --delete branchname
+git branch -d branchname01
+git push origin --delete branchname01
 ```
 ### Merging changes from main to my feature branch
 
 Make sure your local main is up-to-date.
-(This pulls in the newest merged changes.)
 
 ```bash
 git checkout main
 git pull origin main
 ```
-Then, switch back to your feature branch.
+Then, create a new branch.
 
 ``` bash
-git checkout branchname
+git checkout branchname02
 ```
 Now, merge main into your branch.
 
