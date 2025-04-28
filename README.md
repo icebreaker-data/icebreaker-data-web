@@ -61,7 +61,7 @@ git pull origin main
 Then, create a new branch.
 
 ``` bash
-git checkout branchname02
+git checkout -b branchname02
 ```
 Now, merge main into your branch.
 
