@@ -1,9 +1,13 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro'
-import Hero from '../components/Hero.astro'
-import { Card, Pagination } from 'accessible-astro-components'
-import ContentMedia from '../components/ContentMedia.astro'
-import FullWidth from '../components/FullWidth.astro'
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import Hero from '../components/Hero.astro';
+import ContentMedia from '../components/ContentMedia.astro';
+import FullWidth from '../components/FullWidth.astro';
+import { getCollection } from 'astro:content'
+
+// Simply fetch all quotes
+const quotes = await getCollection('quotes')
+console.log('Loaded quotes:', quotes) // This will show in your terminal during build
 ---
 
 <DefaultLayout title="Home">
@@ -21,7 +25,8 @@ import FullWidth from '../components/FullWidth.astro'
     </p>  
   </FullWidth>
 
-  <ContentMedia imgSrc="/accessible-components.webp">
+  <!--<ContentMedia imgSrc="/accessible-components.webp">  --> 
+    <ContentMedia>
     <h2>Slash Your Data Budget</h2>
     <p class="text-xl">
       Do you know how data cloud providers turn a profit? <strong>By managing and controlling compute resources.</strong> Data FinOps, if you will. 
@@ -33,19 +38,20 @@ import FullWidth from '../components/FullWidth.astro'
       We integrate FinOps into Icebreaker, so you can achieve financial sanity in your cloud data warehouse, datalake, or lakehouse operations.
     </p>
   </ContentMedia>
-  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
+<!-- <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}> -->
+    <ContentMedia reverseImg={true}>
     <h2>Meet Your SLAs</h2>
     <p class="text-xl">
       Data teams regularly meet SLAs by consuming more compute capacity than is actually needed. You know it's wasteful, but there are penalties when you don't fulfill your Service Level Agreements.  
     </p>
     <p class="text-xl">
-      Icebreaker sovles this by <strong>intelligently and scoping and right-sizing every query</strong>. Large (expensive) compute instances will spin up, but only when a query requires it. Smaller queries run on spare capacity or smaller instances. 
+      Icebreaker sovles this by <strong>intelligently scoping and right-sizing every query</strong>. Larger (expensive) compute instances will spin up, but only when a query requires it. Smaller queries run on spare capacity or smaller instances. 
     </p>
     <p class="text-xl">
       Each and every query runs &mdash; exactly as it should.
     </p>
   </ContentMedia>
-  <ContentMedia imgSrc="/accessible-components.webp">
+  <ContentMedia>
     <h2>Secure Your Tenants' Data</h2>
     <p class="text-xl">
       Your SaaS customers naturally want to use <span class="italic">their</span> data, which is stored in <span class="italic">your</span> systems. And yes, you'd love to productize data analytics. 
@@ -54,7 +60,7 @@ import FullWidth from '../components/FullWidth.astro'
       But you learn quickly that it is (a) too risky to share compute resources across customers, and (b) too expensive to isolate tenant workloads by cluster.
     </p>
     <p class="text-xl">
-      Icebreaker resolves these problems <span class="italic">automatically</span> with built-in query isolation. It's an elegant and simple way to <strong>dramatically reduce threat exposure</strong>. 
+      Icebreaker resolves these problems with <span class="italic">automatic</span> built-in query isolation. It's an elegant and simple way to <strong>dramatically reduce threat exposure</strong>. 
     </p>
   </ContentMedia>
 <!-- <section class=" bg-neutral-100 dark:bg-neutral-600 mt-16 py-12"> -->
@@ -66,9 +72,86 @@ import FullWidth from '../components/FullWidth.astro'
           What people are saying about Icebreaker.
         </p>
       </div>
-      <Card>
-        something to say
-      </Card>
+      <div class="container">
+        {quotes.length > 0 ? (
+          <div class="testimonial-carousel">
+            {quotes.map((quote, index) => (
+              <div 
+                class="testimonial-card" 
+                data-index={index}
+                style={`
+                  border: 1px solid #ccc; 
+                  padding: 2rem; 
+                  margin: 1rem 0; 
+                  border-radius: 0.5rem;
+                  display: ${index === 0 ? 'block' : 'none'};
+                `}
+              >
+                <blockquote style="font-style: italic; font-size: 1.2rem;">"{quote.data.quote}"</blockquote>
+                <p style="margin-top: 1rem;"><strong>{quote.data.person}</strong></p>
+                <p>{quote.data.organization}</p>
+                {quote.data.jobTitle && <p>{quote.data.jobTitle}</p>}
+              </div>
+            ))}
+            
+            <div class="controls" style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+              <button id="prev-testimonial" style="padding: 0.5rem 1rem;">&larr; Previous</button>
+              <div id="counter" style="display: flex; align-items: center;">
+                <span id="current">1</span>/<span id="total">{quotes.length}</span>
+              </div>
+              <button id="next-testimonial" style="padding: 0.5rem 1rem;">Next &rarr;</button>
+            </div>
+          </div>
+        ) : (
+          <p>No testimonials available.</p>
+        )}
+      </div>
     </div>
   </FullWidth>
+  <script>
+    // JavaScript to handle the testimonial rotation
+    document.addEventListener('DOMContentLoaded', () => {
+      const testimonials = document.querySelectorAll('.testimonial-card');
+      const prevButton = document.getElementById('prev-testimonial');
+      const nextButton = document.getElementById('next-testimonial');
+      const currentCounter = document.getElementById('current');
+      const totalTestimonials = testimonials.length;
+      
+      let currentIndex = 0;
+      
+      function updateTestimonialDisplay() {
+        // Hide all testimonials
+        testimonials.forEach(card => {
+          card.style.display = 'none';
+        });
+        
+        // Show only the current one
+        testimonials[currentIndex].style.display = 'block';
+        
+        // Update counter
+        currentCounter.textContent = (currentIndex + 1).toString();
+      }
+      
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
+        updateTestimonialDisplay();
+      });
+      
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalTestimonials;
+        updateTestimonialDisplay();
+      });
+      
+      // Optional: Auto-rotate testimonials every 7 seconds
+      const autoRotate = true;
+      const rotationInterval = 7000; // milliseconds
+      
+      if (autoRotate && totalTestimonials > 1) {
+        setInterval(() => {
+          currentIndex = (currentIndex + 1) % totalTestimonials;
+          updateTestimonialDisplay();
+        }, rotationInterval);
+      }
+    });
+  </script>
 </DefaultLayout>

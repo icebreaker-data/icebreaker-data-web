@@ -1,33 +1,95 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
-import FullWidth from '../components/FullWidth.astro'
+import { getCollection } from 'astro:content'
 
-import { Card, Pagination } from 'accessible-astro-components'
-import { Accordion, AccordionItem } from 'accessible-astro-components'
-import ContentMedia from '../components/ContentMedia.astro'
-import Features from '../components/Feature.astro'
+// Fetch all quotes
+const quotes = await getCollection('quotes')
 ---
-<DefaultLayout>
-    No .space-content -- everything smooshed
-    <div class="bg-primary-100 p-8">
-        <h2 class="text-3xl font-bold">Hello World</h2>
-        <p>This is a paragraph right after the heading.</p>
-        <p>This is another paragraph after the first one.</p>
+
+<DefaultLayout title="Testimonials">
+  <section class="my-12">
+    <div class="container">
+      <h1>Customer Testimonials</h1>
+      
+      {quotes.length > 0 ? (
+        <div class="testimonial-carousel">
+          {quotes.map((quote, index) => (
+            <div 
+              class="testimonial-card" 
+              data-index={index}
+              style={`
+                border: 1px solid #ccc; 
+                padding: 2rem; 
+                margin: 1rem 0; 
+                border-radius: 0.5rem;
+                display: ${index === 0 ? 'block' : 'none'};
+              `}
+            >
+              <blockquote style="font-style: italic; font-size: 1.2rem;">"{quote.data.quote}"</blockquote>
+              <p style="margin-top: 1rem;"><strong>{quote.data.person}</strong></p>
+              <p>{quote.data.organization}</p>
+              {quote.data.jobTitle && <p>{quote.data.jobTitle}</p>}
+            </div>
+          ))}
+          
+          <div class="controls" style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+            <button id="prev-testimonial" style="padding: 0.5rem 1rem;">&larr; Previous</button>
+            <div id="counter" style="display: flex; align-items: center;">
+              <span id="current">1</span>/<span id="total">{quotes.length}</span>
+            </div>
+            <button id="next-testimonial" style="padding: 0.5rem 1rem;">Next &rarr;</button>
+          </div>
+        </div>
+      ) : (
+        <p>No testimonials available.</p>
+      )}
     </div>
+  </section>
 
-
-With .space-content - smooth vertical rhythm
-    <div class="bg-gray-100 p-8 space-content">
-        <h2 class="text-3xl font-bold">Hello World</h2>
-        <p>This is a paragraph right after the heading.</p>
-        <p>This is another paragraph after the first one.</p>
-  </div>
-
-  <div class="container">
-    <div class="flex-container" style="display: flex;">
-        <div style="flex-grow: 1">test</div>
-        <div style="flex-grow: 3">Transformation</div>
-        <div style="flex-grow: 2">Analytics</div>
-    </div>
-  </div>
+  <script>
+    // JavaScript to handle the testimonial rotation
+    document.addEventListener('DOMContentLoaded', () => {
+      const testimonials = document.querySelectorAll('.testimonial-card');
+      const prevButton = document.getElementById('prev-testimonial');
+      const nextButton = document.getElementById('next-testimonial');
+      const currentCounter = document.getElementById('current');
+      const totalTestimonials = testimonials.length;
+      
+      let currentIndex = 0;
+      
+      function updateTestimonialDisplay() {
+        // Hide all testimonials
+        testimonials.forEach(card => {
+          card.style.display = 'none';
+        });
+        
+        // Show only the current one
+        testimonials[currentIndex].style.display = 'block';
+        
+        // Update counter
+        currentCounter.textContent = (currentIndex + 1).toString();
+      }
+      
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
+        updateTestimonialDisplay();
+      });
+      
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalTestimonials;
+        updateTestimonialDisplay();
+      });
+      
+      // Optional: Auto-rotate testimonials every 5 seconds
+      const autoRotate = true;
+      const rotationInterval = 5000; // milliseconds
+      
+      if (autoRotate && totalTestimonials > 1) {
+        setInterval(() => {
+          currentIndex = (currentIndex + 1) % totalTestimonials;
+          updateTestimonialDisplay();
+        }, rotationInterval);
+      }
+    });
+  </script>
 </DefaultLayout>

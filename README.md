@@ -25,6 +25,7 @@ Add VS Code extensions:
 - Prettier
 - Tailwind CSS IntelliSense
 - ESLint
+- Markdown Preview Enhanced
 - JavaScript and TypeScript: not needed as VS Code has this built-in
 
 Also add from the terminal:
