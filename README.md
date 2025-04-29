@@ -85,3 +85,5 @@ Then source it:
 ``` bash
 source ~/.bashrc
 ```
+### Deploy to GitHub Pages
+Haven't tried yet. [Deploy your Astro Site to GitHub Pages](https://docs.astro.build/en/guides/deploy/github)
