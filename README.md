@@ -36,13 +36,18 @@ npm install prettier_plugin_tailwindcss
 ## MMF Reminders re: git
 
 ### Working on a new branch
+To see what branches are available locally:
 
+``` bash
+git branch
+```
+To update main and create a new branch locally:
 ``` bash
 git checkout main
 git pull
 git checkout -b branchname01
 ```
-When done with the work:
+Commit as you move along with VS Code. When done working on the branch:
 - add files, commit, push
 - PR, merge to main
 - delete branch locally and on GitHub:
