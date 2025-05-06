@@ -16,6 +16,7 @@ const people = defineCollection({
     name: z.string(),
     jobTitle: z.string(),
     bioBrief: z.string(),
+    photo: z.string().optional(),
     order: z.number(),
   }),
 });

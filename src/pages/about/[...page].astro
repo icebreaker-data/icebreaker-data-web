@@ -46,12 +46,12 @@ const { page } = Astro.props
           page.data.map((person) => (
             <li>
               <Card
+                img={person.data.photo}
                 url={'/about/' + person.id}
                 title={person.data.name}
                 footer={'Role: ' + person.data.jobTitle}
               >
                 {person.data.bioBrief}
-                {person.data.order}
               </Card>
             </li>
           ))
