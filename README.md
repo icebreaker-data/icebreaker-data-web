@@ -49,6 +49,13 @@ git checkout -b branchname01
 ```
 Commit as you move along with VS Code. When done working on the branch:
 - add files, commit, push
+``` bash
+git add . // adds all files
+git commit -m "Your commit message here"
+git push --set-upstream origin branchname01 // if the branch does not exist on GitHub (or git push -u origin branchname01)
+git push origin branchname01 // if the branch exists on GitHub
+```
+  
 - PR, merge to main
 - delete branch locally:
 ``` bash
