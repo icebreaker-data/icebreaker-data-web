@@ -77,6 +77,7 @@ git push origin --delete branchname01
 
 - Delete local branch:
 ``` bash
+git checkout main // you can't delete a branch that's checked out
 git branch -d branchname01
 ```
 
