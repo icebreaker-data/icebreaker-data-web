@@ -1,5 +1,6 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import Fullwidth from '../../components/FullWidth.astro'
 import { Card, Pagination } from 'accessible-astro-components'
 import { getCollection } from 'astro:content'
 import type { GetStaticPaths, Page } from 'astro'
@@ -19,7 +20,7 @@ export const getStaticPaths = (async ({ paginate }) => {
     // Fall back to string comparison if not numbers
     return String(idA).localeCompare(String(idB));
   })
-  return paginate(sortedPeople, { pageSize: 6 })
+  return paginate(sortedPeople, { pageSize: 12 })
 }) satisfies GetStaticPaths
 
 interface Props {
@@ -29,18 +30,28 @@ interface Props {
 const { page } = Astro.props
 ---
 
-<DefaultLayout title="About" description="An example of a portfolio using the Astro Content Collections.">
+<DefaultLayout title="About Icebreaker" description="About Icebreaker Data.">
   <section class="my-12">
     <div class="space-content container">
-      <h1>People</h1>
+      <h1>About Icebreaker Data</h1>
       <p class="text-2xl">
-        An example of a portfolio built using Astro Content Collections, showcasing how to organize and display projects dynamically. Check out <a href="https://docs.astro.build/en/guides/content-collections/">Astro Content Collections</a> in the Astro Docs to learn more.
+        intro text here
       </p>
     </div>
   </section>
+  <section class="space-content">
+    <Fullwidth>
+      <h2>Our Story</h2>
+      <p class="space-content">Icebreaker origin story</p>
+    </Fullwidth>
+  </section>
   <section class="my-12">
     <div class="container">
-      <p class="text-sm"><em>People {page.start + 1} through {page.end + 1} of {page.total} total people</em></p>
+      <h2 class="space-content">Leadership</h2>
+      <!-- <p class="text-sm"><em>People {page.start + 1} through {page.end + 1} of {page.total} total people</em></p>  -->
+       <p class="space-content">
+        intro text here
+       </p>
       <ul class="my-3">
         {
           page.data.map((person) => (
