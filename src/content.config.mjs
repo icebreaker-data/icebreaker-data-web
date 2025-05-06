@@ -8,9 +8,18 @@ const quotes = defineCollection({
     quote: z.string(),
     person: z.string().optional(),
     organization: z.string().optional(),
-    jobTitle: z.string().optional(), // Made optional in case some quotes don't have job titles
+    jobTitle: z.string(),
+  }),
+});
+const people = defineCollection({
+  schema: z.object({
+    name: z.string(),
+    jobTitle: z.string(),
+    bioBrief: z.string(),
+    photo: z.string().optional(),
+    order: z.number(),
   }),
 });
 
 // 3. Export a single `collections` object to register your collection(s)
-export const collections = { quotes };
+export const collections = { quotes, people };
