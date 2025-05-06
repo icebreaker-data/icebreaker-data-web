@@ -70,7 +70,7 @@ git push origin branchname01 // if the branch exists on GitHub
 ```
   
 - PR, merge to main.
-- Delete branch on GitHub or locally.
+- Delete branch on GitHub at the end of the Merge sequence. If you forget, you can delete from GitHub's branch view or a terminal command.
 ``` bash
 git push origin --delete branchname01
 ```
