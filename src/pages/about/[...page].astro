@@ -7,7 +7,19 @@ import type { CollectionEntry } from 'astro:content'
 
 export const getStaticPaths = (async ({ paginate }) => {
   const people = await getCollection('people')
-  return paginate(people, { pageSize: 6 })
+  // Sort people by data.order in ascending order
+  const sortedPeople = people.sort((a, b) => {
+    // If IDs are numbers, convert to numbers for proper numeric sorting
+    const idA = typeof a.data.order === 'number' ? a.data.order : Number(a.data.order) || a.data.order;
+    const idB = typeof b.data.order === 'number' ? b.data.order : Number(b.data.order) || b.data.order;
+    
+    if (typeof idA === 'number' && typeof idB === 'number') {
+      return idA - idB; // Numeric sort
+    }
+    // Fall back to string comparison if not numbers
+    return String(idA).localeCompare(String(idB));
+  })
+  return paginate(sortedPeople, { pageSize: 6 })
 }) satisfies GetStaticPaths
 
 interface Props {
@@ -39,6 +51,7 @@ const { page } = Astro.props
                 footer={'Role: ' + person.data.jobTitle}
               >
                 {person.data.bioBrief}
+                {person.data.order}
               </Card>
             </li>
           ))

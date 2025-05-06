@@ -8,14 +8,15 @@ const quotes = defineCollection({
     quote: z.string(),
     person: z.string().optional(),
     organization: z.string().optional(),
-    jobTitle: z.string().optional(), // Made optional in case some quotes don't have job titles
+    jobTitle: z.string(),
   }),
 });
 const people = defineCollection({
   schema: z.object({
     name: z.string(),
-    jobTitle: z.string().optional(),
-    bioBrief: z.string().optional(),
+    jobTitle: z.string(),
+    bioBrief: z.string(),
+    order: z.number(),
   }),
 });
 
