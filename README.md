@@ -41,31 +41,45 @@ To see what branches are available locally:
 ``` bash
 git branch
 ```
-To update main and create a new branch locally:
+
+Update your local main branch.
 ``` bash
 git checkout main
-git pull
+git pull origin main
+```
+
+To create a new branch locally:
+``` bash
 git checkout -b branchname01
 ```
-Commit as you move along with VS Code. When done working on the branch:
+
+Add files and commit as you move along with VS Code or at the command line.
 - add files, commit, push
 ``` bash
 git add . // adds all files
 git commit -m "Your commit message here"
-git push --set-upstream origin branchname01 // if the branch does not exist on GitHub (or git push -u origin branchname01)
+```
+
+Push to GitHub periodically and when done working on the branch.
+``` bash
+git push -u origin branchname01 // if the branch does not exist on GitHub (-u is the short for --set-upstream)
+```
+or
+``` bash
 git push origin branchname01 // if the branch exists on GitHub
 ```
   
-- PR, merge to main
-- delete branch locally:
+- PR, merge to main.
+- Delete branch on GitHub or locally.
+``` bash
+git push origin --delete branchname01
+```
+
+- Delete local branch:
 ``` bash
 git branch -d branchname01
 ```
 
-delete branch on GitHub:
-``` bash
-git push origin --delete branchname01
-```
 ### Merging changes from main to my feature branch
 
 Make sure your local main is up-to-date.
@@ -74,6 +88,7 @@ Make sure your local main is up-to-date.
 git checkout main
 git pull origin main
 ```
+
 Then, create a new branch.
 
 ``` bash
