@@ -50,9 +50,13 @@ git checkout -b branchname01
 Commit as you move along with VS Code. When done working on the branch:
 - add files, commit, push
 - PR, merge to main
-- delete branch locally and on GitHub:
+- delete branch locally:
 ``` bash
 git branch -d branchname01
+```
+
+delete branch on GitHub:
+``` bash
 git push origin --delete branchname01
 ```
 ### Merging changes from main to my feature branch
