@@ -1,7 +1,8 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import FullWidth from '../../components/FullWidth.astro'
-import { Accordion, AccordionItem } from 'accessible-astro-components'
+import AccordionItemTOP from '../../components/AccordionItemTOP.astro'
+import { Accordion, AccordionItem} from 'accessible-astro-components'
 ---
 
 <DefaultLayout title="FAQ">
@@ -33,41 +34,41 @@ import { Accordion, AccordionItem } from 'accessible-astro-components'
       </div>
       <div>
         <Accordion>
-          <AccordionItem title="Does Icebreaker work with or replace Snowflake/Athena/Redshift/BigQuery?" open>
+          <AccordionItemTOP title="Does Icebreaker work with or replace Snowflake/Athena/Redshift/BigQuery?" open>
             <p>
               Icebreaker replaces SQL workloads that use Iceberg tables. Our perpective is there's no point in paying premium pricing for what are now commodity services.
             </p>
-          </AccordionItem>
-          <AccordionItem title="Can I move my Spark jobs that run on Databricks and Amazon EMR to Icebreaker?">
+          </AccordionItemTOP>
+          <AccordionItemTOP title="Can I move my Spark jobs that run on Databricks and Amazon EMR to Icebreaker?">
             <p>
               Icebreaker will support Spark for distributed queries in the future. But you may still find value in Icebreaker now. Many jobs that run on distributed architectures can run just fine on large, single instances at the same "compute unit" cost.
             </p>
-          </AccordionItem>
-          <AccordionItem title="Do I need to use Iceberg tables?">
+          </AccordionItemTOP>
+          <AccordionItemTOP title="Do I need to use Iceberg tables?">
             <p>
               Currently, yes. Icebreaker works with Iceberg tables. 
             </p>
-          </AccordionItem>
-          <AccordionItem title="What if I don't have Iceberg tables now? Can I still use Icebreaker?">
+          </AccordionItemTOP>
+          <AccordionItemTOP title="What if I don't have Iceberg tables now? Can I still use Icebreaker?">
             <p>
               You can use Icebreaker in your ETL/ELT pipeline to write Iceberg tables and perform SQL transformations. 
             </p>
-          </AccordionItem>
-          <AccordionItem title="What else do I need besides Iceberg tables?">
+          </AccordionItemTOP>
+          <AccordionItemTOP title="What else do I need besides Iceberg tables?">
             <p>
               Icebreaker currently runs in your AWS cloud account using <a href="https://aws.amazon.com/ec2/">AWS EC2</a> instances. You get to prioritize on-demand, reserved instance (RI), or spot pricing for your various workloads.
             </p>  
-          </AccordionItem>
-          <AccordionItem title="We negotiated a Private Pricing Agreement (PPA) or Enterprise Discount Program (EDP) with AWS for a huge discount on Reserved Instances (RI). Can I use it with Icebreaker?">
+          </AccordionItemTOP>
+          <AccordionItemTOP title="We negotiated a Private Pricing Agreement (PPA) or Enterprise Discount Program (EDP) with AWS for a huge discount on Reserved Instances (RI). Can I use it with Icebreaker?">
             <p>
               Icebreaker was inspired by organizations just like yours! Too often, organizations have loads of discounted compute capacity, which they use for non-data applications. They still pay for Snowflake, or Redshift, or BigQuery (the list goes on) for data processing! Instead, you can run your SQL jobs on Icebreaker, which uses available capacity on Reserved Instances (or spot instances for even more savings). See <a href="../../product/byoc-daas">BYOC or DaaS</a> to learn more.
             </p>
-          </AccordionItem>
-          <AccordionItem title="Does Icebreaker work with my BI tool?">
+          </AccordionItemTOP>
+          <AccordionItemTOP title="Does Icebreaker work with my BI tool?">
             <p>
               Yes, Icebreaker provides endpoints that work with your BI tool. 
             </p>
-          </AccordionItem>
+          </AccordionItemTOP>
         </Accordion>
       </div>
     </div>
