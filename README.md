@@ -35,6 +35,10 @@ npm install prettier_plugin_tailwindcss
 
 ## MMF Reminders re: git
 
+### Initialize new repos to use main (not master)
+
+`git config --global init.defaultBranch main`
+
 ### Working on a new branch
 To see what branches are available locally:
 
