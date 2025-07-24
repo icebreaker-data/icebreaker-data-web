@@ -1,6 +1,7 @@
 ---
 export const prerender = false // Not needed in 'server' mode
 import DefaultLayout from '../layouts/DefaultLayout.astro'
+const { env } = Astro.locals.runtime
 
 if (Astro.request.method === 'POST') {
   try {
@@ -19,13 +20,16 @@ if (Astro.request.method === 'POST') {
 
     console.log('Contact form submission:', requestBody)
 
-    const response = await fetch('https://icebreaker-slack-bot.liamtsang.workers.dev/message', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestBody),
-    })
+    const response = await env.ICEBREAKER_SLACK_BOT.fetch(
+      'https://icebreaker-slack-bot.liamtsang.workers.dev/message',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      }
+    )
 
     if (response.ok) {
       console.log('Form submitted successfully')
@@ -44,7 +48,7 @@ if (Astro.request.method === 'POST') {
       <div class="mx-auto max-w-4xl">
         <div class="mb-12 text-center">
           <h1 class="mb-4 text-4xl font-bold md:text-6xl">Contact Us</h1>
-          <p class="text-xl text-gray-100">Get in touch with our team. We'd love to hear from you.</p>
+          <p class="text-xl">Get in touch with our team. We'd love to hear from you.</p>
         </div>
 
         <div class="grid grid-cols-1 gap-12">

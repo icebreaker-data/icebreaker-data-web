@@ -4,10 +4,13 @@ import tailwind from '@astrojs/tailwind'
 import compress from 'astro-compress'
 import icon from 'astro-icon'
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
   site: 'https://accessible-astro.netlify.app',
+
   integrations: [
     mdx(),
     icon(),
@@ -16,6 +19,7 @@ export default defineConfig({
     }),
     compress(),
   ],
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -27,4 +31,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: cloudflare(),
 })
