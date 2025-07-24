@@ -19,14 +19,22 @@ export default defineConfig({
         { 
           label: 'Getting Started', 
           autogenerate: {directory: '/docs/getting-started'},
-        },  
+        },
         {
-          label: 'Guides',
-          autogenerate: {directory: '/docs/guides'},
+          label: 'How-To Guides',
+          autogenerate: {directory: '/docs/how-to-guides'},
+        },
+        {
+          label: 'Concepts and Architecture',
+          autogenerate: {directory: '/docs/concepts-and-architecture'},
         },
         {
           label: 'Reference',
           autogenerate: {directory: '/docs/reference'},
+        },
+                {
+          label: 'Release Notes',
+          autogenerate: {directory: '/docs/release-notes'},
         },
       ]}),
     mdx(),
