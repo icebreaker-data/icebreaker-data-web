@@ -5,13 +5,43 @@ import compress from 'astro-compress'
 import icon from 'astro-icon'
 
 import cloudflare from '@astrojs/cloudflare';
+import starlight from '@astrojs/starlight';
+
 
 // https://astro.build/config
+
 export default defineConfig({
   compressHTML: true,
   site: 'https://accessible-astro.netlify.app',
 
+  //site: 'https://icebreakerdata.com // creates a site map
   integrations: [
+    starlight({
+      title: 'Icebreaker',
+      disable404Route: true,
+      sidebar: [
+        { label: 'Welcome', link: '/docs' },
+        { 
+          label: 'Getting Started', 
+          autogenerate: {directory: '/docs/getting-started'},
+        },
+        {
+          label: 'How-To Guides',
+          autogenerate: {directory: '/docs/how-to-guides'},
+        },
+        {
+          label: 'Concepts and Architecture',
+          autogenerate: {directory: '/docs/concepts-and-architecture'},
+        },
+        {
+          label: 'Reference',
+          autogenerate: {directory: '/docs/reference'},
+        },
+                {
+          label: 'Release Notes',
+          autogenerate: {directory: '/docs/release-notes'},
+        },
+      ]}),
     mdx(),
     icon(),
     tailwind({
@@ -19,7 +49,6 @@ export default defineConfig({
     }),
     compress(),
   ],
-
   vite: {
     css: {
       preprocessorOptions: {

@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.0",
+    "@astrojs/starlight": "^0.35.1",
     "accessible-astro-components": "^4.1.0"
   }
 }
