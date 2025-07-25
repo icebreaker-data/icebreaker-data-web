@@ -4,9 +4,9 @@ description: Learn more about my project in this docs site built with Starlight.
 ---
 Icebreaker is an efficient, lightweight **data lakehouse** that eliminates wasted compute. 
 
-## Our Objectives
+## Icebreaker Objectives
 
-Our product objectives are to give enterprises:
+Icebreaker product objectives are to give enterprises:
 1. An **affordable serverless experience** that's incredibly convenient for users
 2. That a central data team can control in a **private cloud service**
 3. And that enforces **shared accountability** to align data budgets with business value.
