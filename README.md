@@ -31,6 +31,7 @@ Add VS Code extensions:
 Also add from the terminal:
 ``` bash
 npm install prettier_plugin_tailwindcss
+npm install @astrojs/cloudflare
 ```
 
 ## MMF Reminders re: git

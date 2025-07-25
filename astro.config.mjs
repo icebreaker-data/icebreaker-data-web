@@ -5,12 +5,8 @@ import compress from 'astro-compress'
 import icon from 'astro-icon'
 
 import cloudflare from '@astrojs/cloudflare';
-import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import mdx from '@astrojs/mdx';
-import tailwind from '@astrojs/tailwind';
-import compress from 'astro-compress';
-import icon from 'astro-icon';
+
 
 // https://astro.build/config
 
@@ -53,9 +49,6 @@ export default defineConfig({
     }),
     compress(),
   ],
-
-    tailwind({applyBaseStyles: false,}), 
-    compress()],
   vite: {
     css: {
       preprocessorOptions: {
