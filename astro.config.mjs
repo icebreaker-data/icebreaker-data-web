@@ -1,3 +1,10 @@
+import { defineConfig } from 'astro/config'
+import mdx from '@astrojs/mdx'
+import tailwind from '@astrojs/tailwind'
+import compress from 'astro-compress'
+import icon from 'astro-icon'
+
+import cloudflare from '@astrojs/cloudflare';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mdx from '@astrojs/mdx';
@@ -9,6 +16,8 @@ import icon from 'astro-icon';
 
 export default defineConfig({
   compressHTML: true,
+  site: 'https://accessible-astro.netlify.app',
+
   //site: 'https://icebreakerdata.com // creates a site map
   integrations: [
     starlight({
@@ -39,6 +48,12 @@ export default defineConfig({
       ]}),
     mdx(),
     icon(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    compress(),
+  ],
+
     tailwind({applyBaseStyles: false,}), 
     compress()],
   vite: {
@@ -52,4 +67,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: cloudflare(),
 })

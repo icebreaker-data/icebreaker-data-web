@@ -54,7 +54,11 @@
     "tailwindcss": "^3.4.15"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@astrojs/starlight": "^0.35.1",
+=======
+    "@astrojs/cloudflare": "^12.6.0",
+>>>>>>> main
     "accessible-astro-components": "^4.1.0"
   }
 }
