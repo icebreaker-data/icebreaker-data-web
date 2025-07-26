@@ -5,6 +5,7 @@ A ready-to-use, SEO and accessibility-focused Astro starter template. Built with
 [![LIVE DEMO](https://img.shields.io/badge/LIVE_DEMO-4ECCA3?style=for-the-badge&logo=astro&logoColor=black)](https://accessible-astro-starter.incluud.dev/) &nbsp;
 [![DOCUMENTATION](https://img.shields.io/badge/DOCUMENTATION-A682FF?style=for-the-badge&logo=astro&logoColor=black)](https://accessible-astro.incluud.dev/) &nbsp;
 
+The site comes with a gallery of <a href="/accessible-components"> accessible components</a>.
 
 ## Getting started
 
