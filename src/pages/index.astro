@@ -4,7 +4,7 @@ import Hero from '../components/Hero.astro';
 import ContentMedia from '../components/ContentMedia.astro';
 import FullWidth from '../components/FullWidth.astro';
 import { getCollection } from 'astro:content'
-
+import { Icon } from 'astro-icon/components'
 // Simply fetch all quotes
 const quotes = await getCollection('quotes')
 console.log('Loaded quotes:', quotes) // This will show in your terminal during build
@@ -13,55 +13,70 @@ console.log('Loaded quotes:', quotes) // This will show in your terminal during 
 <DefaultLayout title="Home">
   <Hero />
   <FullWidth>
-    <h4 class="text-4xl">Introducing Icebreaker Data</h4>
-    <p class="text-xl">
-      Built on a modern, <a href="/product/stack/">composable stack</a>, Icebreaker gives exceptional price performance for your day-to-day SQL workloads. 
+    <h4 class="text-4xl text-center">The Secret Behind Icebreaker Data</h4>
+    <p class="text-xl text-center italic">
+      Do you know how the big data cloud companies make a profit? 
     </p>
-    <p class="text-xl">
-      <strong>But Icebreaker goes much farther, where others don't go.</strong>
+    <p class="text-3xl text-center">
+      <strong>By managing and controlling compute resources.</strong>
     </p>
-    <p class="text-xl">
-      Icebreaker is a new data cloud that cuts out waste and inefficiencies. It's different because it integrates FinOps controls, so you can now do two impossible things at the same time: slash your budget <span class="font-bold">and</span> meet your SLAs.
-    </p>  
+    <p class="text-xl text-center">
+      Icebreaker brings those advanced resource controls to <strong>you</strong>. 
+    </p>
   </FullWidth>
-
-  <!--<ContentMedia imgSrc="/accessible-components.webp">  --> 
-    <ContentMedia>
+  <ContentMedia imgSrc="/src/assets/img/savings.png">
     <h2>Control Your Spend</h2>
     <p class="text-xl">
-      Do you know how data cloud providers turn a profit? <strong>By managing and controlling compute resources:</strong> Data FinOps, if you will. 
+      Icebreaker fundamantally <strong>changes the economics </strong> of data lakehouse operations. 
     </p>
     <p class="text-xl">
-      Data FinOps goes far beyond separation of storage and compute, auto-scaling, and open stacks. (All of which we embrace!) The magic happens with automated Demand Shaping.
+      You advance far beyond separation of storage and compute, auto-scaling, and open software. 
     </p>
     <p class="text-xl">
-      We integrate FinOps into Icebreaker, so you can achieve financial sanity in your cloud data lakehouse operations.
+      Built-in FinOps controls bring financial sanity to unpredictable, on-demand data analytics.
     </p>
+    <div class="flex flex-col gap-3 min-[500px]:flex-row">
+      <a class="button has-icon color-secondary" href="/product/demand-shaping/">
+        <Icon name="ion:calculator-outline" />
+          Learn About Demand Shaping
+      </a>
+    </div>
   </ContentMedia>
-<!-- <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}> -->
-    <ContentMedia reverseImg={true}>
+  <ContentMedia imgSrc="/src/assets/img/agreement.png" reverseImg={true}>
     <h2>Meet Your SLAs</h2>
     <p class="text-xl">
-      Data teams regularly meet SLAs by consuming more compute capacity than is actually needed. You know it's wasteful, but there are penalties when you don't fulfill your Service Level Agreements.  
+      Data teams can meet SLAs by running excess compute -- just in-case. You know it's wasteful, but there are penalties when you don't fulfill your Service Level Agreements.  
     </p>
     <p class="text-xl">
-      Icebreaker sovles this by <strong>intelligently scoping and right-sizing every query</strong>. Larger (expensive) compute instances will spin up, but only when a query requires it. Smaller queries run on spare capacity or smaller instances. 
+      Icebreaker solves this by <strong>intelligently scoping and right-sizing every query</strong>.  
     </p>
     <p class="text-xl">
-      Each and every query runs &mdash; exactly as it should.
+      Larger (expensive) compute instances will spin up, but only when a query requires it. Smaller queries run on spare capacity or smaller instances.
     </p>
+        <div class="flex flex-col gap-3 min-[500px]:flex-row">
+      <a class="button has-icon color-secondary" href="/product/demand-shaping/">
+        <Icon name="ion:calculator-outline" />
+          Learn About Demand Shaping
+      </a>
+    </div>
   </ContentMedia>
   <ContentMedia imgSrc="/src/assets/img/isolation.png">
     <h2>Secure Your Tenants' Data</h2>
     <p class="text-xl">
-      Your SaaS customers naturally want to use <span class="italic">their</span> data, which is stored in <span class="italic">your</span> systems. And yes, you'd love to productize data analytics. 
+      Your SaaS customers want to use <span class="italic">their</span> data, which is stored in <span class="italic">your</span> systems. And yes, you'd love to productize data analytics. 
     </p>
     <p class="text-xl">
-      But you learn quickly that it is (a) too risky to share compute resources across customers, and (b) too expensive to isolate tenant workloads by cluster.
+      But you learn that it is (a) too risky to share compute resources across customers, and (b) too expensive to isolate tenant workloads by cluster.
     </p>
     <p class="text-xl">
-      Icebreaker resolves these problems with <span class="italic">automatic</span> built-in query isolation. It's an elegant and simple way to <strong>dramatically reduce threat exposure</strong>. 
+      Icebreaker automatically isolates every query. It's an elegant and simple way to <strong>dramatically reduce threat exposure</strong>. 
     </p>
+    <div class="flex flex-col gap-3 min-[500px]:flex-row">
+      <a class="button has-icon" href="/product/query-isolation/">
+        <Icon name="ion:lock-closed-outline" />
+          Learn About Query Isolation
+      </a>
+    </div>
   </ContentMedia>
 <!-- <section class=" bg-neutral-100 dark:bg-neutral-600 mt-16 py-12"> -->
   <FullWidth>
