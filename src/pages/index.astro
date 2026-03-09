@@ -13,7 +13,7 @@ console.log('Loaded quotes:', quotes) // This will show in your terminal during 
 <DefaultLayout title="Home">
   <Hero />
   <FullWidth>
-    <h4 class="text-4xl text-center">The Secret Behind Icebreaker Data</h4>
+    <h4 class="text-5xl text-center">The Secret Behind Icebreaker Data</h4>
     <p class="text-xl text-center italic">
       Do you know how the big data cloud companies make a profit? 
     </p>
@@ -29,33 +29,36 @@ console.log('Loaded quotes:', quotes) // This will show in your terminal during 
     <p class="text-xl">
       Icebreaker fundamantally <strong>changes the economics </strong> of data lakehouse operations. 
     </p>
+    <!--
     <p class="text-xl">
       You advance far beyond separation of storage and compute, auto-scaling, and open software. 
     </p>
+     -->
     <p class="text-xl">
-      Built-in FinOps controls bring financial sanity to unpredictable, on-demand data analytics.
+      Built-in FinOps controls bring financial sanity to unpredictable data analytics.
     </p>
     <div class="flex flex-col gap-3 min-[500px]:flex-row">
       <a class="button has-icon color-secondary" href="/product/demand-shaping/">
-        <Icon name="ion:calculator-outline" />
+        <Icon name="ion:cash-outline" />
           Learn About Demand Shaping
       </a>
     </div>
   </ContentMedia>
-  <ContentMedia imgSrc="/src/assets/img/agreement.png" reverseImg={true}>
+  <ContentMedia imgSrc="/src/assets/img/agreement_512.png" reverseImg={true}>
     <h2>Meet Your SLAs</h2>
     <p class="text-xl">
-      Data teams can meet SLAs by running excess compute -- just in-case. You know it's wasteful, but there are penalties when you don't fulfill your Service Level Agreements.  
+      You deploy bigger warehouses or clusters than necessary. You know it's wasteful, but there are penalties when you don't fulfill your Service Level Agreements.  
     </p>
     <p class="text-xl">
-      Icebreaker solves this by <strong>intelligently scoping and right-sizing every query</strong>.  
+      Icebreaker makes sure every query runs as it should by <strong>intelligently scoping and right-sizing every query</strong>.  
     </p>
-    <p class="text-xl">
-      Larger (expensive) compute instances will spin up, but only when a query requires it. Smaller queries run on spare capacity or smaller instances.
+    <!-- <p class="text-xl">
+      Larger compute instances spin up only when a query requires it. Smaller queries run on spare capacity or smaller instances.
     </p>
-        <div class="flex flex-col gap-3 min-[500px]:flex-row">
+    -->
+    <div class="flex flex-col gap-3 min-[500px]:flex-row">
       <a class="button has-icon color-secondary" href="/product/demand-shaping/">
-        <Icon name="ion:calculator-outline" />
+        <Icon name="ion:cash-outline" />
           Learn About Demand Shaping
       </a>
     </div>
@@ -63,10 +66,10 @@ console.log('Loaded quotes:', quotes) // This will show in your terminal during 
   <ContentMedia imgSrc="/src/assets/img/isolation.png">
     <h2>Secure Your Tenants' Data</h2>
     <p class="text-xl">
-      Your SaaS customers want to use <span class="italic">their</span> data, which is stored in <span class="italic">your</span> systems. And yes, you'd love to productize data analytics. 
+      SaaS companies struggle to give their customers access to their own data. 
     </p>
     <p class="text-xl">
-      But you learn that it is (a) too risky to share compute resources across customers, and (b) too expensive to isolate tenant workloads by cluster.
+      It is (a) too risky to share compute resources across customers, and (b) too expensive to isolate tenant workloads by cluster.
     </p>
     <p class="text-xl">
       Icebreaker automatically isolates every query. It's an elegant and simple way to <strong>dramatically reduce threat exposure</strong>. 
