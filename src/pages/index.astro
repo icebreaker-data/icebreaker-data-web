@@ -10,26 +10,27 @@ const quotes = await getCollection('quotes')
 console.log('Loaded quotes:', quotes) // This will show in your terminal during build
 ---
 
-<DefaultLayout title="Home">
+<DefaultLayout title="Icebreaker Data | Serverless Data Platform for Agentic AI"
+  description="A private data cloud that lets you run data operations like a business, not a cost center. Built for AI agents, multi-tenant SaaS, and daily enterprise data workloads.">
   <Hero />
   <FullWidth>
-    <p class="text-xl text-center font-semibold">
+    <p class="text-2xl text-center">
+      No more idle compute or starved queries. <br>Same BI user experience. Same ETL jobs. Same query performance.
+    </p>
+    <p class="text-3xl text-center font-semibold">
       Icebreaker lets you run data operations like a business, not a cost center.
     </p>
-    <p class="text-xl text-center">
-      No more idle compute or starved queries. Same BI user experience. Same query performance.
-    </p>
-    <p class="text-xl text-center">
-       Use our provider-grade data platform in <strong>your private cloud</strong> to </br><a href="/">right-size every query</a> and <a href="/product/demand-shaping/">shape demand</a>.
+    <p class="text-2xl text-center">
+      Manage your own private data cloud with provider-grade resource controls and unit economics.
     </p>
   </FullWidth>
   <ContentMedia imgSrc="/src/assets/img/savings.png">
     <h2>Control Your Spend</h2>
     <p class="text-xl">
-      <a>Icebreaker fundamantally</a> <strong>changes the economics </strong> of data lakehouse operations. 
+      Agentic AI is fundamantally <a href="/product/demand-shaping/">changing the economics</a> of data analytics. AI agents explore data by trial and error, which consumes resources and costs money. Lots of money.
     </p>
     <p class="text-xl">
-      Built-in FinOps controls bring financial sanity to unpredictable data analytics.
+      Icebreaker is the only enterprise data platform getting ahead of it. Icebreaker ensures that every query is properly cached, right-sized, throttled, and securely deployed, keeping your budget on pace with innovation.
     </p>
     <div class="flex flex-col gap-3 min-[500px]:flex-row">
       <a class="button has-icon color-secondary" href="/product/demand-shaping/">
@@ -41,7 +42,7 @@ console.log('Loaded quotes:', quotes) // This will show in your terminal during 
   <ContentMedia imgSrc="/src/assets/img/agreement_512.png" reverseImg={true}>
     <h2>Meet Your SLAs</h2>
     <p class="text-xl">
-      You deploy bigger warehouses or clusters than necessary. You know it's wasteful, but there are penalties when you don't fulfill your Service Level Agreements.  
+      You deploy bigger warehouses or clusters than necessary. You know it's wasteful, but there are financial penalties when you don't meet your Service Level Agreements.  
     </p>
     <p class="text-xl">
       Icebreaker makes sure every query runs as it should by <strong>intelligently scoping and right-sizing every query</strong>.  
@@ -58,15 +59,13 @@ console.log('Loaded quotes:', quotes) // This will show in your terminal during 
     </div>
   </ContentMedia>
   <ContentMedia imgSrc="/src/assets/img/isolation.png">
-    <h2>Secure Your Tenants' Data</h2>
+    <h2>Secure Multi-tenant Data</h2>
     <p class="text-xl">
-      SaaS companies struggle to give their customers access to their own data. 
+      SaaS companies struggle to give customers access to their own data without risking "nosey neighbor" leakage. Icebreaker provides <strong>native, query-level isolation</strong>. 
     </p>
     <p class="text-xl">
-      It is (a) too risky to share compute resources across customers, and (b) too expensive to isolate tenant workloads by cluster.
+      It's an elegant and easy way for you to dramatically reduce threat exposure in multi-tenant environments.
     </p>
-    <p class="text-xl">
-      Icebreaker automatically isolates every query. It's an elegant and simple way to <strong>dramatically reduce threat exposure</strong>. 
     </p>
     <div class="flex flex-col gap-3 min-[500px]:flex-row">
       <a class="button has-icon" href="/product/query-isolation/">
