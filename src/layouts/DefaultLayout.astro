@@ -61,6 +61,13 @@ const {
         --primary-background: var(--primary-500);
         --neutral-background: var(--neutral-900);
       }
+      // Fix for links on light sections while in Dark Mode
+      .darkmode .bg-neutral-100 a:not(.button) {
+        --action-color: var(--primary-300);
+        &:hover {
+          color: var(--secondary-400);
+        }
+      }
 
       // sticky footer on low content pages
       html,
