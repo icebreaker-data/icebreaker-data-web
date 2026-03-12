@@ -1,47 +1,18 @@
-import { defineConfig } from 'astro/config'
-import mdx from '@astrojs/mdx'
-import tailwind from '@astrojs/tailwind'
-import compress from 'astro-compress'
-import icon from 'astro-icon'
-
-import cloudflare from '@astrojs/cloudflare';
-import starlight from '@astrojs/starlight';
-
-
-// https://astro.build/config
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import tailwind from '@astrojs/tailwind';
+import compress from 'astro-compress';
+import icon from 'astro-icon';
+import { icebreakerConfig } from './site.config.mjs';
 
 export default defineConfig({
-  compressHTML: true,
-  site: 'https://accessible-astro.netlify.app',
+  // Spread your Icebreaker settings first
+  ...icebreakerConfig,
 
-  //site: 'https://icebreakerdata.com // creates a site map
+  // Accessible Astro theme defaults
+  compressHTML: true,
   integrations: [
-    starlight({
-      title: 'Icebreaker',
-      disable404Route: true,
-      sidebar: [
-        { label: 'Welcome', link: '/docs' },
-        { 
-          label: 'Getting Started', 
-          autogenerate: {directory: '/docs/getting-started'},
-        },
-        {
-          label: 'How-To Guides',
-          autogenerate: {directory: '/docs/how-to-guides'},
-        },
-        {
-          label: 'Concepts and Architecture',
-          autogenerate: {directory: '/docs/concepts-and-architecture'},
-        },
-        {
-          label: 'Reference',
-          autogenerate: {directory: '/docs/reference'},
-        },
-                {
-          label: 'Release Notes',
-          autogenerate: {directory: '/docs/release-notes'},
-        },
-      ]}),
+    ...icebreakerConfig.integrations, // Adds Starlight from your config
     mdx(),
     icon(),
     tailwind({
@@ -60,6 +31,4 @@ export default defineConfig({
       },
     },
   },
-
-  adapter: cloudflare(),
-})
+});
