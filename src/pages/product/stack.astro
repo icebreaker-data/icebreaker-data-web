@@ -1,29 +1,44 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import FullWidth from '../../components/FullWidth.astro'
+import Feature from '../../components/Feature.astro';
+import ContentMedia from '../components/ContentMedia.astro';
+import { getCollection } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+import { Media } from 'accessible-astro-components'
 ---
 
 <DefaultLayout title="Tech Stack">
     <section>
         <div class="container">
             <h1 class="text-center text-6xl md:text-left">
-                The Composable<br /><hr>Tech Stack
+                Advanced Data Stack
             </h1>
         </div>
     </section>
     <section class="mt-8">
         <div class="container">
             <p class="text-2xl">
-                text
+                Apache Iceberg | Apache DataFusion | Kubernetes
             </p>
         </div>
     </section>
     <FullWidth>
-        <h4 class="text-4xl">heading 4</h4>
+        <h4 class="text-4xl">How On-Demand Query Execution Works </h4>
         <p class="text-xl">
-            some text 
+            animation
         </p>
-        </FullWidth>
+        <div class="container">
+            imgSrc="/src/assets/img/savings.png"
+        </div>
+        
+    </FullWidth>
+    <Feature title="Open Data Format">
+        
+    </Feature>
+        <Feature title="Open Data Format">
+        
+    </Feature>
     <section class="mt-8">
         <div class="container">
             <p class="text-2xl">
