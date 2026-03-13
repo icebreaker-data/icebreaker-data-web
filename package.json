@@ -57,6 +57,8 @@
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/starlight": "^0.37.7",
+    "@iconify-json/lucide": "^1.2.97",
+    "@lucide/astro": "^0.577.0",
     "accessible-astro-components": "^5.2.0"
   }
 }
