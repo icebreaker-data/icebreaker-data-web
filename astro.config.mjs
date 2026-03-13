@@ -20,7 +20,7 @@ export default defineConfig({
   ],
 
   vite: {
-    plugins: [tailwindcss()], // This MUST be the first plugin
+    plugins: [tailwindcss()], 
     css: {
       preprocessorOptions: {
         scss: {

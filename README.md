@@ -70,7 +70,13 @@ Push to GitHub periodically and when done working on the branch.
 ``` bash
 git push -u origin branchname01 // if the branch does not exist on GitHub (-u is the short for --set-upstream)
 ```
-or
+orkeep a close eye on these three files during the merge. Git will likely flag them as Conflicts:
+
+package.json: The theme might try to downgrade you to Tailwind 3 or an older Astro version. Keep your versions.
+
+src/assets/scss/globals.scss: The theme will try to put @import "tailwindcss" back at the top. Delete it—keep your tailwind.css split.
+
+astro.config.mjs: Ensure your site.config.mjs imports and your vite block (with the Tailwind 4 plugin) stay intact.
 ``` bash
 git push origin branchname01 // if the branch exists on GitHub
 ```
@@ -125,3 +131,21 @@ source ~/.bashrc
 ```
 ### Deploy to GitHub Pages
 Haven't tried yet. [Deploy your Astro Site to GitHub Pages](https://docs.astro.build/en/guides/deploy/github)
+
+## Upgrade Notes March 12, 2026
+
+Site config is in `site.config.mjs`
+Icebreaker overrides in `astro.config.mjs`
+- `import { icebreakerConfig } from './site.config.mjs'; // ICEBREAKER OVERRIDE`
+- `export default defineConfig({`
+  `site: icebreakerConfig.site,`
+  `integrations: [`
+  `  icebreakerConfig.starlightIntegration,`
+Branding is in `_root.scss` and `_color.scss`
+
+Check carefully:
+- `package.json`: The theme might try to downgrade you to Tailwind 3 or an older Astro version. Keep your versions.
+
+- `src/assets/scss/globals.scss`: The theme will try to put @import "tailwindcss" back at the top. Delete it—keep your tailwind.css split.
+
+- `astro.config.mjs`: Ensure your site.config.mjs imports and your vite block (with the Tailwind 4 plugin) stay intact.
