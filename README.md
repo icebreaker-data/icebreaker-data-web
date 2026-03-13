@@ -24,6 +24,7 @@ cd icebreaker-data-web
 npm install
 npm install accessible-astro-components
 npm install @lucide/astro
+npm install @iconify-json/lucide
 ```
 Check versions:
 ```
