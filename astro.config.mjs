@@ -1,32 +1,31 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import tailwind from '@astrojs/tailwind';
 import compress from 'astro-compress';
 import icon from 'astro-icon';
-import { icebreakerConfig } from './site.config.mjs';
+import tailwindcss from '@tailwindcss/vite'; 
+import { icebreakerConfig } from './site.config.mjs'; // ICEBREAKER OVERRIDE
 
 export default defineConfig({
-  // Spread your Icebreaker settings first
-  ...icebreakerConfig,
-
-  // Accessible Astro theme defaults
+  // ICEBREAKER OVERRIDES
+  site: icebreakerConfig.site,
+  adapter: icebreakerConfig.adapter,
+  
   compressHTML: true,
+
   integrations: [
-    ...icebreakerConfig.integrations, // Adds Starlight from your config
+    icebreakerConfig.starlightIntegration, // ICEBREAKER OVERRIDE
     mdx(),
     icon(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
     compress(),
   ],
+
   vite: {
+    plugins: [tailwindcss()], // This MUST be the first plugin
     css: {
       preprocessorOptions: {
         scss: {
-          logger: {
-            warn: () => {},
-          },
+          api: 'modern-compiler', // Add this to help Sass 
+          logger: { warn: () => {} },
         },
       },
     },
