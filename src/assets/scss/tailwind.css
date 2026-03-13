@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* 1. Replaces your old darkMode: ['class', '.darkmode'] */
+@custom-variant dark (&:where(.darkmode, .darkmode *));
+
+@source "../../**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}";
+
+/* You can add custom theme variables here if needed, 
+   though your SCSS loop in _root.scss handles most of this. */
+@theme {
+  /* Add any non-color theme extensions here later */
+}
