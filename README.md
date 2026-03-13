@@ -9,11 +9,38 @@ The site comes with a gallery of <a href="/accessible-components"> accessible co
 
 ## Getting started
 
-Clone this theme locally and run any of the following commands in your terminal:
+This project uses Astro 5, which requires Node version 22:
+```
+nvm install 22
+nvm use 22
+```
+
+Clone this theme locally, then install Astro and its dependencies:
+```
+mkdir icebreaker-data-web
+git clone https://github.com/flynntsang/icebreaker-data-web.git icebreaker-data-web
+
+cd icebreaker-data-web
+npm install
+npm install accessible-astro-components
+```
+Check versions:
+```
+npx astro --version
+npm list --depth=0
+```
+You are looking for:
+```
+astro 5.18.1
+@astrojs/starlight 0.37.7
+@tailwindcss/vite@4.2.1
+```
+When you run the server you should see the theme version, e.g. `accessible-astro-starter@3.4.1 dev`.
+
+To run the server:
 
 | Command           | Action                                       |
 | :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
 | `npm run dev`     | Starts local dev server at `localhost:4321`  |
 | `npm run build`   | Build your production site to `./dist/`      |
 | `npm run preview` | Preview your build locally, before deploying |
