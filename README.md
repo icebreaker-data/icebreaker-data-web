@@ -23,6 +23,7 @@ git clone https://github.com/flynntsang/icebreaker-data-web.git icebreaker-data-
 cd icebreaker-data-web
 npm install
 npm install accessible-astro-components
+npm install @lucide/astro
 ```
 Check versions:
 ```
