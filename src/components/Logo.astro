@@ -1,0 +1,33 @@
+---
+import { siteConfig } from '../../site.config.mjs'
+import { Link } from 'accessible-astro-components'
+import { Image } from 'astro:assets'
+
+/**
+ * Logo Component
+ *
+ * @description Logo description
+ */
+
+interface Props {
+  /**
+   * Whether to load the image eagerly or lazily
+   * @default 'eager'
+   */
+  loading?: 'eager' | 'lazy'
+}
+
+const { loading = 'eager' }: Props = Astro.props
+---
+
+<Link href="/" class="flex items-center gap-2">
+  <Image
+    src={siteConfig.siteLogo}
+    alt=""
+    aria-hidden="true"
+    width="47"
+    height="37"
+    loading={loading}
+  />
+  <span class="text-sm font-bold sm:text-lg">{siteConfig.name}</span>
+</Link>
