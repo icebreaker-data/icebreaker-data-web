@@ -29,11 +29,13 @@ npm install sanitize-html
 ```
 Check versions:
 ```
+node -v
 npx astro --version
 npm list --depth=0
 ```
 You are looking for:
 ```
+node 22.22.1
 astro 5.18.1
 @astrojs/starlight 0.37.7
 @tailwindcss/vite@4.2.1
