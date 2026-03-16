@@ -18,9 +18,10 @@ nvm use 22
 Clone this theme locally, then install Astro and its dependencies:
 ```
 mkdir icebreaker-data-web
-git clone https://github.com/flynntsang/icebreaker-data-web.git icebreaker-data-web
-
 cd icebreaker-data-web
+
+git clone https://github.com/flynntsang/icebreaker-data-web.git .
+
 npm install
 npm install accessible-astro-components
 npm install astro-seo
