@@ -5,7 +5,7 @@ import icon from 'astro-icon'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
-import { icebreakerConfig } from './site.config.mjs'; // ICEBREAKER OVERRIDE
+import { siteConfig } from './site.config.mjs';
 
 // Vite configuration with path aliases and SCSS settings
 const viteConfig = {
@@ -38,9 +38,8 @@ const viteConfig = {
 // https://astro.build/config
 export default defineConfig({
 
-  // ICEBREAKER OVERRIDES
-    site: icebreakerConfig.site,
-    adapter: icebreakerConfig.adapter,
+    site: siteConfig.site,
+    adapter: siteConfig.adapter,
     compressHTML: true,
     integrations: [
       compress(), 
@@ -49,7 +48,7 @@ export default defineConfig({
           lucide: ['*'],
         }
       }), 
-      icebreakerConfig.starlightIntegration, // ICEBREAKER OVERRIDE
+      siteConfig.starlightIntegration, 
       mdx(), 
       sitemap(),
     ],
