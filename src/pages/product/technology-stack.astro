@@ -1,0 +1,62 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import FullWidth from '../../components/FullWidth.astro';
+
+import { getCollection, render } from 'astro:content'
+
+import { Icon } from 'astro-icon/components';
+import Feature from '../../components/Feature.astro';
+
+const allTechnologies = (await getCollection('technologies')).sort(
+    (a, b) => (a.data.order || 0) - (b.data.order || 0),
+);
+
+const techWithContent = await Promise.all(
+  allTechnologies.map(async (tech) => {
+    const { Content } = await render(tech);
+    return { tech, Content };
+  })
+);
+console.log('Loaded technologies:',allTechnologies); // will show in the terminal console
+---
+
+<DefaultLayout title="Icebreaker Technology Stack">
+    <section>
+        <div class="container">
+            <h1 class="text-center text-6xl md:text-left">
+                Advanced Data Stack
+            </h1>
+        </div>
+    </section>
+
+    <section class="mt-8">
+        <div class="container">
+            <p class="text-2xl">
+                Apache Iceberg | Apache DataFusion | Kubernetes
+            </p>
+        </div>
+    </section>
+    <FullWidth>
+        <h4 class="text-4xl">How On-Demand Query Execution Works </h4>
+    </FullWidth>
+
+
+<section id="features" class="my-24">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+        {techWithContent.map(({ tech, Content }) => (
+            /* 4. Pass the frontmatter to the props, and the Markdown to the slot */
+            <Feature 
+            icon={tech.data.icon} 
+            title={tech.data.title}
+            >
+            <Content />
+            </Feature>
+        ))}
+
+    </div>
+</div>
+</section>
+
+</DefaultLayout>

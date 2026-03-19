@@ -1,92 +1,95 @@
 ---
-import Navigation from '../components/Navigation.astro'
 import { SkipLink } from 'accessible-astro-components'
+import Navigation from '../components/Navigation.astro'
 import { Icon } from 'astro-icon/components'
 ---
 
 <header>
   <SkipLink />
   <Navigation>
-    <!-- 
-    <li class="menu-item has-dropdown">
-      <button aria-haspopup="true" aria-expanded="false">Why Icebreaker</button>
-      <ul class="dropdown-menu">
-        <li class="submenu-item">
-          <a href="/why-icebreaker/problem/">The Problem With Data Clouds</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/why-icebreaker/data-finops-builtin/">FinOps Built-In</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/why-icebreaker/meet-slas/">SLA Guarantees -- Guaranteed</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/why-icebreaker/multitenant-data-security/">Multitenant Data Security</a>
-      </ul>
+    <li class="menu-item contact-cta">
+      <a href="/contact">Contact Us!</a>
     </li>
-     -->
     <li class="menu-item has-dropdown">
       <button aria-haspopup="true" aria-expanded="false">Product</button>
       <ul class="dropdown-menu">
-        <li class="submenu-item">
-          <a href="/product/stack/">The Tech Stack</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/product/query-isolation/">Query Isolation</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/product/demand-shaping/">Demand Shaping</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/product/performance-accelerators/">Performance</a>
-        </li>
+        <li class="submenu-item"><a href="/product/technology-stack/">The Tech Stack</a></li>
+        <li class="submenu-item"><a href="/product/query-isolation/">Query Isolation</a></li>
+        <li class="submenu-item"><a href="/product/demand-shaping/">Demand Shaping</a></li>
+        <li class="submenu-item"><a href="/product/performance-accelerators/">Performance</a></li>
       </ul>
     </li>
     <li class="menu-item has-dropdown">
       <button aria-haspopup="true" aria-expanded="false">Resources</button>
       <ul class="dropdown-menu">
-        <li class="submenu-item">
-          <a href="/docs/">Docs</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/resources/faq/">FAQ</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/usecases/">Use Cases</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/about/">About Us</a>
-        </li>
+        <li class="submenu-item"><a href="/docs/">Docs</a></li>
+        <li class="submenu-item"><a href="/resources/faq/">FAQ</a></li>
+        <li class="submenu-item"><a href="/usecases/">Use Cases</a></li>
+        <li class="submenu-item"><a href="/about/">About Us</a></li>
       </ul>
     </li>    
-<!--<li class="menu-item">
-      <a href="/about/">About</a>
-    </li> 
--->
-    </Navigation>
+  </Navigation>
 </header>
 
 <style lang="scss" is:global>
   @use '../assets/scss/base/outline' as *;
 
   header {
+    // Standardizes the horizontal nav list
+    .menu-items {
+      display: flex;
+      align-items: center; 
+      gap: 1.25rem;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+
+      button, a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 0.5rem 0.75rem;
+        transition: color 0.2s ease;
+        
+        // Matches the Teal/Cyan from your "FinOps" button
+        color: var(--secondary-color, #5ce1e6); 
+      }
+    }
+
+    // High-Contrast Contact Button
+    .contact-cta a {
+      // Background matches the Teal button in your screenshot
+      background-color: var(--secondary-color, #5ce1e6);
+      color: #0d2137 !important; // Dark navy text for contrast on teal
+      border-radius: 4px;
+      padding: 8px 18px !important;
+      font-weight: 700;
+      text-transform: none;
+      transition: filter 0.2s ease;
+
+      &:hover {
+        filter: brightness(1.1);
+        text-decoration: none;
+      }
+    }
+
     .type-icon a {
       display: block;
-
       [data-icon] {
         margin-top: -4px;
         width: 30px;
         height: auto;
-
-        path {
-          fill: var(--action-color);
-        }
+        path { fill: var(--action-color); }
       }
-
-      &:hover {
-        [data-icon] path {
-          fill: var(--action-color-state);
-        }
+      &:hover [data-icon] path {
+        fill: var(--action-color-state);
       }
     }
   }
