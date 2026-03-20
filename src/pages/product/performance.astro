@@ -13,11 +13,7 @@ import { BaseSchema } from 'astro:content';
             <h1 class="text-center text-6xl md:text-left">
                 Icebreaker Performance
             </h1>
-        </div>
-    </section>
-    <section class="mt-8">
-        <div class="container">
-            <p class="text-2xl">
+            <p class="text-2xl text-center md:text-left leading-relaxed">
                 Get the flexibility of an open datalake with the speed of a proprietary warehouse. 
             </p>
         </div>
@@ -54,6 +50,9 @@ import { BaseSchema } from 'astro:content';
             </li>
             <li class="text-xl list-disc leading-relaxed">
                 <strong>Multi-Level Caching:</strong> During query planning, Iceberg metadata instantly validates the cache. Icebreaker can even pull partial results from cache and the rest from a live query, dramatically reducing time-to-answer.
+            </li>
+            <li class="text-xl list-disc leading-relaxed">
+                <strong>Columnar, vectorized execution:</strong> Our embedded DataFusion query engine delivers exceptional analytic query performance.
             </li>
         </ul>
     </FullWidth>
