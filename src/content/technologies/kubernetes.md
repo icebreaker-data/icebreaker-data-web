@@ -1,6 +1,6 @@
 ---
 title: "Kubernetes"
 icon: "ion:flash-outline"
-order: 2
+order: 3
 ---
-Every query is isolated from nosey neighbors in its own Kubernetes pod.
+Harden data security through pod-level per-query isolation and bin-pack for maximum efficiency. Eliminate the risks of resource contention failures and data leakage.
