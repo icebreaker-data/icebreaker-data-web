@@ -1,38 +1,174 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import FullWidth from '../../components/FullWidth.astro'
-import { Card, Pagination } from 'accessible-astro-components'
-import { Accordion, AccordionItem } from 'accessible-astro-components'
-import ContentMedia from '../components/ContentMedia.astro'
-import Features from '../components/Feature.astro'
+import ComparisonTable from '../../components/DemandShapingComparisonTable.astro'
+import FeaturePillar from '../../components/FeaturePillar.astro'
+
+const pillars = [
+  {
+    index: "01",
+    title: "Intelligent Admission & Right-Sizing",
+    description: "Stop the 'thundering herd' that causes performance degradation during traffic spikes.",
+    items: [
+      "<strong>Intermediate Queue:</strong> Buffers SQL queries safely.",
+      "<strong>Throttling:</strong> Prevents cluster overload."
+    ]
+  },
+  {
+    index: "02",
+    title: "Granular Right-Sizing",
+    description: "Ensure successful completion of every query with zero compute waste.",
+    items: [
+        "<strong>Right Sizing:</strong> Analyze every query for compute and memory requirements.",
+        "<strong>Bin Packing:</strong> Maximize query density wherever there is available capacity."
+
+    ]
+  },
+  {
+    index: "03",
+    title: "Fleet Optimization",
+    description: "Lower unit economics by always using the most cost-effective infrastructure.",
+    items: [
+      "<strong>Spot Instances:</strong> Safely use the least expensive compute, even for mission-critical jobs.",
+      "<strong>Reserved Instances:</strong> Consistently use negotiated compute for predictable cost baselines."
+    ]
+  },
+  {
+    index: "04",
+    title: "Pre-Warming & Pre-Emption",
+    description: "Align your most critical jobs with your highest performing compute.",
+    items: [
+        "<strong>Pre-Warming:</strong> Automatically spin up instances for peak demand.",
+        "<strong>Workload Pre-Emption:</strong> Define high-priority workloads that can skip to the top of the queue."
+    ]
+  }
+];
 ---
 
 <DefaultLayout title="Demand Shaping">
     <section>
         <div class="container">
             <h1 class="text-center text-6xl md:text-left">
-                Demand Shaping<hr>
+                Demand Shaping 
             </h1>
         </div>
     </section>
+
     <section class="mt-8">
         <div class="container">
             <p class="text-2xl">
-                Demand Shaping
+                Control the insatiable desire for more and more data 
             </p>
         </div>
     </section>
+
     <FullWidth>
-        <h4 class="text-4xl">heading 4</h4>
-        <p class="text-xl">
-            some text 
-        </p>
+        <div class="container grid md:grid-cols-2 gap-12 items-center">
+            <div class="p-8 rounded-2xl shadow-xl border-t-4 border-(--secondary-400)">
+                <h4 class="text-2xl font-bold mb-6">The Data Demand Problem</h4>
+                <ul class="list-warning text-lg space-y-4">
+                    <li>BI dashboards spike at 9am</li>
+                    <li>Ad hoc queries collide with pipelines</li>
+                    <li>AI agents generate bursts of queries</li>
+                    <li>Over-provisioning wastes corporate assets</li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-xl opacity-80">
+                    To prevent failures (and associated penalties from SLA breaches), data teams <strong>overprovision</strong> their clusters and warehouses.
+                </p>
+                <br/>
+                <p class="text-xl opacity-80">
+                    In other words, they pay for compute they never use. This is a <strong>wasted corporate asset.</strong>
+                </p>
+            </div>
+        </div>
     </FullWidth>
-    <section class="mt-8">
-        <div class="container p-8">
-            <p class="text-2xl">
-                text here's some more text etc 
+
+<section class="bg-(--secondary-400) py-24">
+    <div class="container">
+        <article class="mx-auto max-w-3xl rounded-3xl bg-white p-10 md:p-16 shadow-2xl text-(--neutral-800) relative overflow-hidden">
+            
+            <div class="absolute top-0 right-0 w-32 h-32 bg-(--primary-500) clip-path-poly opacity-10"></div>
+
+            <header class="mb-10">
+                <div class="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-(--primary-500) mb-4">
+                    <span class="border-2 border-(--primary-500) px-2 py-1 rounded">Key Concept</span>
+                    <span>•</span>
+                    <span>3 Min Read</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-(--primary-500) leading-tight">
+                    What is Demand Shaping?
+                </h2>
+            </header>
+
+            <div>
+                <div class="my-2 border-l-[6px] border-(--primary-500) bg-(--neutral-100)/40 py-2 pl-4 pr-4 rounded-r-2xl">
+                    <p class="text-xl font-semibold italic leading-snug text-(--primary-500)">
+                        By reducing the architectural and economic unit down to the individual query, 
+                        Demand Shaping eliminates human error and waste when sizing warehouses and clusters.
+                    </p>
+                </div>
+                <br/>
+                <p>
+                    Demand Shaping is a resource management practice borrowed from public utilities and large-scale retailers. 
+                    In those industries, providers don't just react to demand; they influence it to ensure the grid (or the supply chain) 
+                    remains stable and they can turn a profit (or keep prices low for a public good).
+                </p>
+                <br/>
+                <p>
+                    In the world of cloud infrastructure, this technique is the "secret sauce" used by hyperscalers (AWS, GCP, and Azure), 
+                    data cloud providers (Snowflake, Databricks), and serverless SQL (Google BigQuery, Amazon Athena). 
+                    They shape demand to service unpredictable query volumes, programmatically fitting current and anticipated demand 
+                    into the available compute supply and budget constraints.
+                </p>
+                <br/>
+                <p>
+                    When demand is shaped rather than just "served," your data lake becomes fundamentally more stable. It ensures that no matter how complex the query or how high the spike, the system remains efficient and predictable. 
+                </p>
+                <br/>
+                <div class="rounded-lg bg-(--primary-500) p-6 text-white">
+                    <p class="m-0">
+                        While hyperscalers have used these patterns internally for years, <strong>Icebreaker Data</strong> is the first platform to bring native Demand Shaping directly to the enterprise data stack.
+                    </p>
+                </div>
+            </div>
+
+            <!--<footer class="mt-12 pt-8 border-t border-(--neutral-300) flex items-center justify-between">
+                <span class="font-bold text-(--primary-500)">Icebreaker Technical Brief #04</span>
+                <a href="#pillars" class="text-(--secondary-500) font-bold hover:underline">Learn how we do it →</a>
+            </footer>
+             -->
+        </article>
+        
+    </div>
+</section>
+
+
+<section class="py-12">
+    <div class="container">
+        <div class="mb-16 text-center">
+            <h2 class="text-4xl font-bold mb-4">How Icebreaker Shapes Demand</h2>
+            <p class="text-xl mx-auto">
+                Moving from unpredictable spikes to a smooth, cost-optimized query flow.
             </p>
         </div>
-    </section>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
+            {pillars.map((pillar) => (
+                <FeaturePillar 
+                    index={pillar.index}
+                    title={pillar.title}
+                    description={pillar.description}
+                    listItems={pillar.items}
+                />
+            ))}
+        </div>
+    </div>
+</section>
+
+<FullWidth>
+        <h2>Comparing Icebreaker</h2>
+        <ComparisonTable title="Comparison between Traditional Warehouses and Icebreaker Data" />
+</FullWidth>
 </DefaultLayout>

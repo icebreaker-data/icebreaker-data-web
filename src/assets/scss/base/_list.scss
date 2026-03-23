@@ -4,64 +4,136 @@
 
 @use 'breakpoint' as *;
 
-ul:not([class]),
-ol:not([class]) {
-  margin-left: 1rem;
-
-  ul,
-  ol {
-    padding: 0.5rem 1rem 0;
-  }
-
+// 1. Global Defaults for ALL lists
+ul, ol {
+  margin-left: 1.5rem;
+  padding: 0;
+  list-style-position: outside;
+  
   li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
   }
 }
 
-ul:not([class]) {
-  > li::marker {
-    display: block;
-    color: var(--primary-800);
+// Default Bullet Style for content (This was causing the dots in the nav)
+ul {
+  list-style-type: disc;
+
+  li::marker {
+    color: var(--primary-300);
   }
 }
 
-ol.incremented {
-  counter-reset: item;
+// Default Number Style
+ol {
+  list-style-type: decimal;
 
+  li::marker {
+    color: var(--primary-500);
+    font-weight: bold;
+  }
+}
+
+// 2. Navigation & Menu Fixes
+// This section resets the header and any navigation-specific lists
+header,
+nav,
+.menu-item,
+.submenu-item,
+.dropdown-menu {
+  // Reset the list containers
+  &, 
+  ul, 
   ol {
-    counter-reset: item;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  ol,
-  ul {
-    margin: 0.75rem 0 0 1rem;
-  }
-
+  // Explicitly kill the markers for all list items in these areas
   li {
-    display: block;
-    margin-bottom: 0.5rem;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 
-    @include breakpoint(medium) {
-      margin-bottom: 0.75rem;
+    &::marker,
+    &::before {
+      content: none !important;
+      display: none !important;
     }
+  }
+}
+
+// 3. Override Classes (Checkmarks & Warnings)
+.list-checkmark {
+  list-style-type: none;
+  margin-left: 0;
+
+  li {
+    position: relative;
+    padding-left: 2rem;
 
     &::before {
-      content: counters(item, '.') '. ';
-      counter-increment: item;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    p {
-      display: inline;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.2rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      background-color: var(--secondary-400);
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: contain;
     }
   }
+}
 
-  ul {
-    li::before {
+.list-warning {
+  list-style-type: none;
+  margin-left: 0;
+
+  li {
+    position: relative;
+    padding-left: 2rem;
+
+    &::before {
       content: '';
+      position: absolute;
+      left: 0;
+      top: 0.2rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      background-color: #ff9800;
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='12' y1='8' x2='12' y2='12'%3E%3C/line%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'%3E%3C/line%3E%3C/svg%3E");
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cline x1='12' y1='8' x2='12' y2='12'%3E%3C/line%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'%3E%3C/line%3E%3C/svg%3E");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: contain;
+    }
+  }
+}
+
+// 4. Hierarchical Numbers
+ol.incremented {
+  list-style-type: none;
+  margin-left: 0;
+  counter-reset: item;
+
+  li {
+    display: block;
+    counter-increment: item;
+    margin-bottom: 0.5rem;
+
+    &::before {
+      content: counters(item, ".") ". ";
+      font-weight: bold;
+      color: var(--primary-500);
+      margin-right: 0.5rem;
     }
   }
 }

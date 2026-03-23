@@ -1,6 +1,6 @@
 ---
 quote: Every data engineering leader has heard of and fears the runaway query.
-person: Mike Brown
-organization: Strider
+person: ''
+organization: Strategic Intelligence Platform
 jobTitle: CTO, Cofounder
 ---

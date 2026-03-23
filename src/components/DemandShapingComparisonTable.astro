@@ -1,0 +1,39 @@
+---
+const { title } = Astro.props;
+---
+
+<div class="my-12 overflow-x-auto rounded-lg border border-(--neutral-400) shadow-sm dark:border-(--neutral-700)">
+  <table class="w-full min-w-150 border-collapse text-left">
+    <caption class="sr-only">{title}</caption>
+    <thead>
+      <tr class="bg-(--primary-500) text-(--neutral-100)">
+        <th scope="col" class="border-b border-(--neutral-400) p-4 font-bold dark:border-(--neutral-700)">Capability</th>
+        <th scope="col" class="border-b border-(--neutral-400) p-4 font-bold dark:border-(--neutral-700)">Traditional Warehouses</th>
+        <th scope="col" class="border-b border-(--neutral-400) p-4 font-bold text-(--secondary-300) dark:border-(--neutral-700)">Icebreaker Data</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-(--neutral-300) dark:divide-(--neutral-700)">
+      <tr class="bg-(--neutral-100) dark:bg-(--neutral-900)">
+        <th scope="row" class="bg-(--neutral-200) p-4 font-medium text-(--neutral-800) dark:bg-(--neutral-800) dark:text-(--neutral-200)">Scaling</th>
+        <td class="p-4 text-(--neutral-700) dark:text-(--neutral-400)">Coarse (Warehouse or Entire clusters)</td>
+        <td class="p-4 font-bold text-(--primary-500) dark:text-(--secondary-400)">Granular (Query-by-query)</td>
+      </tr>
+      </tbody>
+          <tbody class="divide-y divide-(--neutral-300) dark:divide-(--neutral-700)">
+      <tr class="bg-(--neutral-100) dark:bg-(--neutral-900)">
+        <th scope="row" class="bg-(--neutral-200) p-4 font-medium text-(--neutral-800) dark:bg-(--neutral-800) dark:text-(--neutral-200)">Waste</th>
+        <td class="p-4 text-(--neutral-700) dark:text-(--neutral-400)">High: Over-Provisioned</td>
+        <td class="p-4 font-bold text-(--primary-500) dark:text-(--secondary-400)">Minimal: Bin Packing and Dynamic Sizing</td>
+      </tr>
+      </tbody>
+          <tbody class="divide-y divide-(--neutral-300) dark:divide-(--neutral-700)">
+      <tr class="bg-(--neutral-100) dark:bg-(--neutral-900)">
+        <th scope="row" class="bg-(--neutral-200) p-4 font-medium text-(--neutral-800) dark:bg-(--neutral-800) dark:text-(--neutral-200)">Admission</th>
+        <td class="p-4 text-(--neutral-700) dark:text-(--neutral-400)">First-come, first-served</td>
+        <td class="p-4 font-bold text-(--primary-500) dark:text-(--secondary-400)">Intelligent Queueing with Pre-Emption</td>
+      </tr>
+      </tbody>
+          <tbody class="divide-y divide-(--neutral-300) dark:divide-(--neutral-700)">
+      </tbody>
+  </table>
+</div>
