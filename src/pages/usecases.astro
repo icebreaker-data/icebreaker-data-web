@@ -2,6 +2,8 @@
 import ContentMedia from '../components/ContentMedia.astro'
 import FullWidth from '../components/FullWidth.astro'
 import DefaultLayout from '../layouts/DefaultLayout.astro'
+import { Icon } from 'astro-icon/components'
+import { Link } from 'accessible-astro-components'
 ---
 
 <DefaultLayout title="Use Cases">
@@ -40,6 +42,11 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
         <p  class="text-xl">
           <strong>Icebreaker Control  </strong>
           With Iceberg catalogs, Icebreaker can quickly source the appropriate tables and Icebreakers controls ensure that queries operate within pre-defined economic parameters.
+        </p>
+        <p class="text-xl">
+            <Link href="https://arxiv.org/pdf/2509.00997" isExternal>
+              Read the academic research
+            </Link>
         </p>
       </ContentMedia>
     </section>
