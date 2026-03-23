@@ -5,7 +5,6 @@
 @use 'breakpoint' as *;
 
 // 1. Global Defaults for ALL lists
-// This ensures bullets stay visible even if you add utility classes.
 ul, ol {
   margin-left: 1.5rem;
   padding: 0;
@@ -17,7 +16,7 @@ ul, ol {
   }
 }
 
-// Default Bullet Style for all ULs
+// Default Bullet Style for content (This was causing the dots in the nav)
 ul {
   list-style-type: disc;
 
@@ -26,7 +25,7 @@ ul {
   }
 }
 
-// Default Number Style for all OLs
+// Default Number Style
 ol {
   list-style-type: decimal;
 
@@ -36,10 +35,39 @@ ol {
   }
 }
 
-// 2. Override Classes (For when you DON'T want standard bullets)
+// 2. Navigation & Menu Fixes
+// This section resets the header and any navigation-specific lists
+header,
+nav,
+.menu-item,
+.submenu-item,
+.dropdown-menu {
+  // Reset the list containers
+  &, 
+  ul, 
+  ol {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
+  // Explicitly kill the markers for all list items in these areas
+  li {
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    &::marker,
+    &::before {
+      content: none !important;
+      display: none !important;
+    }
+  }
+}
+
+// 3. Override Classes (Checkmarks & Warnings)
 .list-checkmark {
-  list-style-type: none; // Turn off the default disc
+  list-style-type: none;
   margin-left: 0;
 
   li {
@@ -90,9 +118,22 @@ ol {
   }
 }
 
-// Keep your incremented logic at the bottom
+// 4. Hierarchical Numbers
 ol.incremented {
   list-style-type: none;
   margin-left: 0;
-  // ... rest of your existing code
+  counter-reset: item;
+
+  li {
+    display: block;
+    counter-increment: item;
+    margin-bottom: 0.5rem;
+
+    &::before {
+      content: counters(item, ".") ". ";
+      font-weight: bold;
+      color: var(--primary-500);
+      margin-right: 0.5rem;
+    }
+  }
 }
