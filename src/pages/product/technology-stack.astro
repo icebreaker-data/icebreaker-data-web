@@ -1,11 +1,12 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro';
 import FullWidth from '../../components/FullWidth.astro';
+import Marketecture from '../../components/Marketecture.astro';
 
 import { getCollection, render } from 'astro:content'
 
-import { Icon } from 'astro-icon/components';
 import Feature from '../../components/Feature.astro';
+import { Link } from 'accessible-astro-components'
 
 const allTechnologies = (await getCollection('technologies')).sort(
     (a, b) => (a.data.order || 0) - (b.data.order || 0),
@@ -36,15 +37,15 @@ console.log('Loaded technologies:',allTechnologies); // will show in the termina
             </p>
         </div>
     </section>
-    <FullWidth>
-        <h4 class="text-4xl">How On-Demand Query Execution Works </h4>
-    </FullWidth>
 
+    <FullWidth>
+        <p class="text-3xl text-center">An open and composable tech stack for the data lake that runs in your VPC.</p>
+        <Marketecture />
+    </FullWidth>
 
 <section id="features" class="my-24">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-
         {techWithContent.map(({ tech, Content }) => (
             /* 4. Pass the frontmatter to the props, and the Markdown to the slot */
             <Feature 
@@ -54,9 +55,27 @@ console.log('Loaded technologies:',allTechnologies); // will show in the termina
             <Content />
             </Feature>
         ))}
-
     </div>
 </div>
 </section>
-
+    <FullWidth>
+        <h4 class="text-4xl">Learn more!</h4>
+        <ul>
+            <li>
+                <Link href="/resources/faq">
+                    Frequently Asked Questions
+                </Link>
+            </li>
+            <li>
+                <Link href="/product/query-isolation/">
+                    Query Isolation
+                </Link>    
+            </li>
+            <li>
+                <Link href="/product/demand-shaping/">
+                    Demand Shaping
+                </Link>    
+            </li>
+        </ul>
+    </FullWidth>
 </DefaultLayout>

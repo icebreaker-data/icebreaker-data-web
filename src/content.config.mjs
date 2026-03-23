@@ -32,6 +32,7 @@ const people = defineCollection({
     name: z.string(),
     jobTitle: z.string(),
     bioBrief: z.string(),
+    draft: z.boolean().default(true),
     photo: z.string().optional(),
     order: z.number(),
   }),

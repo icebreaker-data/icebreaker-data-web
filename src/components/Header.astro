@@ -1,6 +1,7 @@
 ---
 import { SkipLink } from 'accessible-astro-components'
 import Navigation from '../components/Navigation.astro'
+import { Modal } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 ---
 
@@ -16,13 +17,15 @@ import { Icon } from 'astro-icon/components'
         <li class="submenu-item"><a href="/product/technology-stack/">The Tech Stack</a></li>
         <li class="submenu-item"><a href="/product/query-isolation/">Query Isolation</a></li>
         <li class="submenu-item"><a href="/product/demand-shaping/">Demand Shaping</a></li>
-        <li class="submenu-item"><a href="/product/performance-accelerators/">Performance</a></li>
+        <li class="submenu-item"><a href="/product/performance/">Performance</a></li>
       </ul>
     </li>
     <li class="menu-item has-dropdown">
       <button aria-haspopup="true" aria-expanded="false">Resources</button>
       <ul class="dropdown-menu">
-        <li class="submenu-item"><a href="/docs/">Docs</a></li>
+        <button id="docs-modal-trigger" class="hover:text-blue-400 transition-colors cursor-pointer">
+          Docs
+        </button>
         <li class="submenu-item"><a href="/resources/faq/">FAQ</a></li>
         <li class="submenu-item"><a href="/usecases/">Use Cases</a></li>
         <li class="submenu-item"><a href="/about/">About Us</a></li>
@@ -30,6 +33,28 @@ import { Icon } from 'astro-icon/components'
     </li>    
   </Navigation>
 </header>
+
+<Modal
+  triggerId="docs-modal-trigger"
+  title="Documentation Under Development"
+  closeText="Close"
+>
+  <div class="p-4">
+    <p class="text-lg text-neutral-200">
+      We're busy documenting the <br /><strong>Icebreaker Technical Reference</strong>.
+    </p>
+    <br />
+    <p class="text-lg mb-10 text-neutral-200">
+      Contact us for early access!
+    </p>
+  </div>
+  <div class="p-4">
+    <a class="button has-icon color-secondary" href="/contact/">
+      <Icon name="ion:mail" />
+      Tell us how to reach you.
+    </a>
+</div>
+</Modal>
 
 <style lang="scss" is:global>
   @use '../assets/scss/base/outline' as *;

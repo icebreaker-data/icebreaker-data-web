@@ -1,0 +1,64 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import FullWidth from '../../components/FullWidth.astro'
+
+import { Image } from 'astro:assets';
+import metricsImg from '../../assets/img/queryPerformanceMetrics.png';
+import { BaseSchema } from 'astro:content';
+---
+
+<DefaultLayout title="Performance Metrics">
+    <section>
+        <div class="container">
+            <h1 class="text-center text-6xl md:text-left">
+                Icebreaker Performance
+            </h1>
+        </div>
+    </section>
+
+    <section class="mt-8">
+        <div class="container">
+            <p class="text-2xl">
+                Get the flexibility of an open data lake with the speed of a proprietary warehouse. 
+            </p>
+        </div>
+    </section>   
+    <FullWidth>
+        <h4 class="text-4xl">Performance Metrics</h4>
+        <p class="text-xl">
+            There are two ways to get excellent performance: (1) move all your data into a proprietary system <strong>that you can't control</strong> and (2) <strong>over-size and over-provision</strong> a system you do control.
+        </p>
+        <p class="text-xl">
+            Both are terribly expensive. Icebreaker gives you control over what matters: your budget, performance expectations (SLAs), and preferred resources (negotiated compute). Our AI platform automates the rest, with performance comparable to what you need and expect. 
+        </p>
+    </FullWidth>
+    <div class="flex justify-center my-12">
+        <Image 
+            src={metricsImg} 
+            alt="Icebreaker Marketecture Diagram" 
+            width={800}
+            format="webp"
+            class="rounded-lg border border-slate-200/50 shadow-xl shadow-slate-900/20"
+        />
+    </div>
+    <FullWidth>
+        <h4 class="text-4xl">Performance Accelerators</h4>
+        <p class="text-xl mb-8">
+            Far beyond the separation of storage and compute, Icebreaker disaggregates compute to a unit-level, on-demand model.
+        </p>
+        <ul>
+            <li class="text-xl list-disc leading-relaxed">
+                <strong>Zero-Copy Execution:</strong> Icebreaker interfaces directly with your Apache Iceberg metadata to pull only the required partitions into ephemeral pods.
+            </li>
+            <li class="text-xl list-disc leading-relaxed">
+                <strong>Controlled Scalability:</strong> You configure Icebreaker with budgets and whether to use Spot and negotiated compute pricing. Icebreaker automatically scales up, shuts down, throttles, and pre-empts queries based on your priorities.
+            </li>
+            <li class="text-xl list-disc leading-relaxed">
+                <strong>Multi-Level Caching:</strong> During query planning, Iceberg metadata instantly validates the cache. Icebreaker can even pull partial results from cache and the rest from a live query, dramatically reducing time-to-answer.
+            </li>
+            <li class="text-xl list-disc leading-relaxed">
+                <strong>Columnar, vectorized execution:</strong> Our embedded DataFusion query engine delivers exceptional analytic query performance.
+            </li>
+        </ul>
+    </FullWidth>
+</DefaultLayout>

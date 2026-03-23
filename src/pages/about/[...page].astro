@@ -7,7 +7,9 @@ import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const people = await getCollection('people')
+  const people = await getCollection('people',({ data }) => {
+  return data.draft !== true;
+})
   // Sort people by data.order in ascending order
   const sortedPeople = people.sort((a, b) => {
     // If IDs are numbers, convert to numbers for proper numeric sorting
@@ -31,27 +33,40 @@ const { page } = Astro.props
 ---
 
 <DefaultLayout title="About Icebreaker" description="About Icebreaker Data.">
-  <section class="my-12">
-    <div class="space-content container">
-      <h1>About Icebreaker Data</h1>
-      <p class="text-2xl">
-        intro text here
-      </p>
+  <section>
+    <div class="container">
+      <h1 class="text-center text-6xl md:text-left">
+        About Icebreaker Data
+      </h1>
     </div>
   </section>
-  <section class="space-content">
+
+    <section class="mt-8">
+      <div class="container">
+          <p class="text-2xl">
+              Our mission is to bring the most efficient data platform to everyone.
+          </p>
+      </div>
+    </section>
+
     <Fullwidth>
       <h2>Our Story</h2>
-      <p class="space-content">Icebreaker origin story</p>
+
+      <p class="text-xl">
+        Icebreaker's founding team members each have decades of professional and academic experience in all things data and AI. 
+      </p>
+      <p class="text-xl">
+        We know the big data platform vendors optimize and control technology to drive profit. We are adapting hyperscaler-grade technology to the enterprise and SaaS to make data teams more lean, more successful, and operate like a business. 
+      </p>
     </Fullwidth>
-  </section>
-  <section class="my-12">
+
+  <!-- <section class="my-12">
     <div class="container">
-      <h2 class="space-content">Leadership</h2>
+      <h2 class="space-content">Leadership</h2> -->
       <!-- <p class="text-sm"><em>People {page.start + 1} through {page.end + 1} of {page.total} total people</em></p>  -->
-       <p class="space-content">
-        intro text here
-       </p>
+     <!-- <p class=class="space-content">
+        Our CEO led multiple engineering teams at AWS, holds 7 patents, and is a co-author of multiple journal publications. 
+      </p>
       <ul class="my-3">
         {
           page.data.map((person) => (
@@ -80,6 +95,7 @@ const { page } = Astro.props
       </div>
     </div>
   </section>
+   -->
 </DefaultLayout>
 
 <style lang="scss">

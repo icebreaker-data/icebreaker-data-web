@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import diagram from '../assets/img/Marketecture1.svg';
+---
+
+<div class="diagram-wrapper">
+  <Image 
+    src={diagram} 
+    alt="Icebreaker technical stack" 
+    class="marketecture-svg"
+  />
+</div>
+
+<style>
+  .diagram-wrapper {
+    width: 70%;
+    max-width: 1000px; /* Adjust based on your layout */
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #001524; /* Matching the diagram's dark theme */
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .marketecture-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* This ensures the SVG scales smoothly without pixelation */
+    interpolation-mode: bicubic; 
+  }
+</style>
