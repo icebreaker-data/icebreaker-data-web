@@ -3,6 +3,48 @@ import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import FullWidth from '../../components/FullWidth.astro'
 import ContentMedia from '../../components/ContentMedia.astro'
 import ComparisonTable from '../../components/DemandShapingComparisonTable.astro'
+import FeaturePillar from '../../components/FeaturePillar.astro'
+import BlockQuote from '../../components/BlockQuote.astro'
+
+const pillars = [
+  {
+    index: "01",
+    title: "Intelligent Admission & Right-Sizing",
+    description: "Stop the 'thundering herd' that causes performance degradation during traffic spikes.",
+    items: [
+      "<strong>Intermediate Queue:</strong> Buffers SQL queries safely.",
+      "<strong>Throttling:</strong> Prevents cluster overload."
+    ]
+  },
+  {
+    index: "02",
+    title: "Granular Right-Sizing",
+    description: "Ensure successful completion of every query with zero compute waste.",
+    items: [
+        "<strong>Right Sizing:</strong> Analyze every query for compute and memory requirements.",
+        "<strong>Bin Packing:</strong> Maximize query density wherever there is available capacity."
+
+    ]
+  },
+  {
+    index: "03",
+    title: "Fleet Optimization",
+    description: "Lower unit economics by always using the most cost-effective infrastructure.",
+    items: [
+      "<strong>Spot Instances:</strong> Safely use the least expensive compute, even for mission-critical jobs.",
+      "<strong>Reserved Instances:</strong> Consistently use negotiated compute for predictable cost baselines."
+    ]
+  },
+  {
+    index: "04",
+    title: "Pre-warming & Priority",
+    description: "Align your most critical jobs with your highest performing compute.",
+    items: [
+        "<strong>Pre-warming:</strong> Automatically spin up instances for peak demand.",
+        "<strong>Workload Pre-Emption:</strong> Define high-priority workloads that can skip to the top of the queue."
+    ]
+  }
+];
 ---
 
 <DefaultLayout title="Demand Shaping">
@@ -13,127 +55,120 @@ import ComparisonTable from '../../components/DemandShapingComparisonTable.astro
             </h1>
         </div>
     </section>
+
     <section class="mt-8">
         <div class="container">
             <p class="text-2xl">
-                How to control the insatiable desire for more and more data 
+                Control the insatiable desire for more and more data 
             </p>
         </div>
     </section>
-    <FullWidth>
-        <h4 class="text-4xl">The Data Demand Problem</h4>
-        <p class="text-xl">
-            In the modern enterprise, demand is unpredictable: 
-        </p>
-        <ul class="text-xl list-warning">
-            <li>
-                BI dashboards spike at 9am
-            </li>
-            <li>
-                Ad hoc queries unpredictably collide with scheduled pipelines
-            </li>
-            <li>
-                AI agents generate bursts of exploratory queries
-            </li>
-            <li>
-                One poorly written query can degrade performance for everyone
-            </li>
-        </ul>
-        <p class="text-xl">
-            To prevent failures (and associated penalties from SLA breaches), data teams <strong>overprovision</strong> their clusters and warehouses. 
-        </p>
-        <p class="text-xl">
-            In other words, they pay for compute they never use. This is a <strong>wasted corporate asset</strong>.
-        </p>
-        <p class="text-xl">
-            And yet, failures still happen.
-        </p>
-    </FullWidth>
-    <section class="mt-8" title="Demand Shaping Definition">
-        <div class="container p-8">
-            <h3>
-                What is Demand Shaping?
-            </h3>
-            <p class="text-2xl">
-                Demand Shaping is a practice borrowed from public utilities and retailers.
-            </p>
-            <br/>
-            <p class="text-2xl">
-                It is used by all the big hyperscalers to manage demand (such as queries) to economically fit current and anticipated supply (e.g., compute availability and budget).
-            </p>
-            <br/>
-            <p class="text-2xl">
-                Demand Shaping reduces the unit economics down to the query. You no longer size warehouses or manage clusters. 
-            </p>
-            <br/>
-        </div>
-    </section>
-    <FullWidth>
-        <p class="text-3xl">
-            Which means your data lake is more stable and more efficient, no matter what you ask of it.
-        </p><br/>
-        <p class="text-3xl">    
-            <strong>Only Icebreaker brings hyperscaler-grade Demand Shaping to the enterprise.</strong>
-        </p>
-    </FullWidth>
-    <ContentMedia imgSrc="" reverseImg>
-        <h2>1. Intelligent Query Admission Control</h2>
-        <p class="text-xl">
-            Unlike traditional warehouses that struggle when too many queries hit at once, Icebreaker utilizes an intermediate queue. 
-        </p>
-        <p class="text-xl">
-            This allows the platform to hold SQL queries in a "buffer" while the optimal execution environment is prepared, preventing the "thundering herd" effect that usually leads to performance degradation.
-        </p>
-    </ContentMedia>
-    <ContentMedia imgSrc="" >
-    <h2>2. Granular Right-Sizing & Bin Packing</h2>
-    <p class="text-xl">
-        Icebreaker analyzes the requirements of every individual query before execution.
-    </p>
-    <ul class="text-xl">
-        <li>
-            <strong>Right-Sizing:</strong> It allocates only the necessary compute resources—no more, no less.
-        </li>        
-        <li>
-            <strong>Bin Packing:</strong> Multiple queries are intelligently "packed" onto the same compute instances to eliminate idle time and maximize every cent of your spend.
-        </li>
-    </ul>
-</ContentMedia>
-    <ContentMedia imgSrc="" reverseImg>
-    <h2>3. Fleet-Level Cost Optimization</h2>
-    <p class="text-xl">
-        Administrators can define Compute Fleets to dictate the underlying infrastructure. This gives you the power to:
-    </p>
-    <ul class="text-xl">
-        <li>
-            Maximize the use of <strong>Spot Instances</strong>, even for mission-critical queries.
-        </li>
-        <li>
-            Use Reserved Instances (RIs) and Savings Plans for predictable baselines.
-        </li>
-        <li>
-            Drastically lower unit economics by letting the platform choose the cheapest available compute that meets the query's requirements.
-        </li>
-    </ul>
-</ContentMedia>
-    <ContentMedia imgSrc="" >
-    <h2>4. Configurable Priority & Pre-warming</h2>
-    <p class="text-xl">
-        You shouldn't have to choose between cost and speed for your most critical data.
-    </p>
-    <ul class="text-xl">
-        <li>
-            <strong>Pre-Warming:</strong> Automatically spin up instances for known peak times (like that 9 AM BI dashboard spike).
-        </li>        
-        <li>
-            <strong>Workload Prioritization:</strong> Define which workloads get "VIP treatment." You can even configure preemption strategies where high-priority queries can safely bump lower-priority, background tasks.
-        </li>
-    </ul>
-</ContentMedia>
-<FullWidth>
 
+    <FullWidth>
+        <div class="container grid md:grid-cols-2 gap-12 items-center">
+            <div class="p-8 rounded-2xl shadow-xl border-t-4 border-(--secondary-400)">
+                <h4 class="text-2xl font-bold mb-6">The Data Demand Problem</h4>
+                <ul class="list-warning text-lg space-y-4">
+                    <li>BI dashboards spike at 9am</li>
+                    <li>Ad hoc queries collide with pipelines</li>
+                    <li>AI agents generate bursts of queries</li>
+                    <li>Over-provisioning wastes corporate assets</li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-2xl opacity-80">
+                    To prevent failures (and associated penalties from SLA breaches), data teams <strong>overprovision</strong> their clusters and warehouses.
+                </p>
+                <br/>
+                <p class="text-2xl opacity-80">
+                    In other words, they pay for compute they never use. This is a <strong>wasted corporate asset.</strong>
+                </p>
+            </div>
+        </div>
+    </FullWidth>
+
+<section class="bg-(--secondary-400) py-24">
+    <div class="container">
+        <article class="mx-auto max-w-3xl rounded-3xl bg-white p-10 md:p-16 shadow-2xl text-(--neutral-800) relative overflow-hidden">
+            
+            <div class="absolute top-0 right-0 w-32 h-32 bg-(--primary-500) clip-path-poly opacity-10"></div>
+
+            <header class="mb-10">
+                <div class="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-(--primary-500) mb-4">
+                    <span class="border-2 border-(--primary-500) px-2 py-1 rounded">Key Concept</span>
+                    <span>•</span>
+                    <span>3 Min Read</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-(--primary-500) leading-tight">
+                    What is Demand Shaping?
+                </h2>
+            </header>
+
+            <div class="prose prose-lg text-(--neutral-700) leading-relaxed">
+            
+                <blockquote class="block-20 border-l-4 border-(--primary-500)">
+                    By reducing the architectural and economic unit down to the individual query, Demand Shaping removes cognitive load and waste when sizing warehouses and clusters.
+                </blockquote>
+                <br/>
+                <p>
+                    Demand Shaping is a resource management practice borrowed from public utilities and large-scale retailers. 
+                    In those industries, providers don't just react to demand; they influence it to ensure the grid (or the supply chain) 
+                    remains stable and they can turn a profit (or keep prices low for a public good).
+                </p>
+                <br/>
+                <p>
+                    In the world of cloud infrastructure, this technique is the "secret sauce" used by hyperscalers (AWS, GCP, and Azure), 
+                    data cloud providers (Snowflake, Databricks), and serverless SQL (Google BigQuery, Amazon Athena). 
+                    They shape demand to service unpredictable query volumes, programmatically fitting current and anticipated demand 
+                    into the available compute supply and budget constraints.
+                </p>
+                <br/>
+                <p>
+                    When demand is shaped rather than just "served," your data lake becomes fundamentally more stable. It ensures that no matter how complex the query or how high the spike, the system remains efficient and predictable. 
+                </p>
+                <br/>
+                <div class="rounded-lg bg-(--primary-500) p-6 text-white">
+                    <p class="m-0 font-medium">
+                        While hyperscalers have used these patterns internally for years, <strong>Icebreaker Data</strong> is the first platform to bring native Demand Shaping directly to the enterprise data stack.
+                    </p>
+                </div>
+            </div>
+
+            <!--<footer class="mt-12 pt-8 border-t border-(--neutral-300) flex items-center justify-between">
+                <span class="font-bold text-(--primary-500)">Icebreaker Technical Brief #04</span>
+                <a href="#pillars" class="text-(--secondary-500) font-bold hover:underline">Learn how we do it →</a>
+            </footer>
+             -->
+        </article>
+        
+    </div>
+</section>
+
+
+<section class="py-12">
+    <div class="container">
+        <div class="mb-16 text-center">
+            <h2 class="text-4xl font-bold mb-4">How Icebreaker Shapes Demand</h2>
+            <p class="text-xl mx-auto">
+                Moving from unpredictable spikes to a smooth, cost-optimized query flow.
+            </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
+            {pillars.map((pillar) => (
+                <FeaturePillar 
+                    index={pillar.index}
+                    title={pillar.title}
+                    description={pillar.description}
+                    listItems={pillar.items}
+                />
+            ))}
+        </div>
+    </div>
+</section>
+
+<FullWidth>
         <h2>Compare Icebreaker with Your Data Platform</h2>
         <ComparisonTable title="Comparison between Traditional Warehouses and Icebreaker Data" />
-
 </FullWidth>
 </DefaultLayout>
