@@ -1,34 +1,107 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import FullWidth from '../../components/FullWidth.astro'
+import ComparisonTable from '../../components/QueryIsolationComparisonTable.astro'
 ---
 
 <DefaultLayout title="Query Isolation">
     <section>
         <div class="container">
             <h1 class="text-center text-6xl md:text-left">
-                Query Isolation<hr>
+                Query Isolation
             </h1>
         </div>
     </section>
     <section class="mt-8">
         <div class="container">
             <p class="text-2xl leading-relaxed">
-                Query isolation has long been promoted for its data security benefits. <br />It's also foundational to <a href="../demand-shaping">Demand Shaping</a> for Data FinOps execution.
+                Gurantee security and successful execution for every query, regardless of the load.
             </p>
+        </div>
+    </section>
+
+    <FullWidth>
+        <div class="container grid md:grid-cols-2 gap-12 items-center">
+            <div class="p-8 rounded-2xl shadow-xl border-t-4 border-(--primary-400)">
+                <h4 class="text-2xl font-bold mb-6">The Data Demand Problem</h4>
+                <ul class="list-warning text-lg space-y-4">
+                    <li>BI dashboards spike at 9am</li>
+                    <li>Ad hoc queries collide with pipelines</li>
+                    <li>AI agents generate bursts of queries</li>
+                    <li>Over-provisioning wastes corporate assets</li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-xl opacity-80">
+                    To prevent failures (and associated penalties from SLA breaches), data teams <strong>overprovision</strong> their clusters and warehouses.
+                </p>
+                <br/>
+                <p class="text-xl opacity-80">
+                    But with data-hungry AI agents, demand spikes beyond compute capacity, budgets go over, and <strong>queries fail</strong>.
+                </p>
+                <br/>
+                <p class="text-xl opacity-80 text-[var(--primary-400)] font-bold">
+                    Icebreaker moves you from expensive, unpredictable spikes to a smooth, cost-optimized query flow.
+                </p>
+            </div>
+        </div>
+    </FullWidth>
+
+    <section class="bg-(--primary-400) py-24">
+        <div class="container">
+            <article class="mx-auto max-w-3xl rounded-3xl bg-white p-10 md:p-16 shadow-2xl text-(--neutral-800) relative overflow-hidden">
+                
+                <div class="absolute top-0 right-0 w-32 h-32 bg-(--primary-500) clip-path-poly opacity-10"></div>
+
+                <header class="mb-10">
+                    <div class="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-(--primary-500) mb-4">
+                        <span class="border-2 border-(--primary-500) px-2 py-1 rounded">Key Concept</span>
+                        <span>•</span>
+                        <span>3 Min Read</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-(--primary-500) leading-tight">
+                        What is Query Isolation?
+                    </h2>
+                </header>
+
+                <div>
+                    <div class="my-2 border-l-[6px] border-(--primary-500) bg-(--neutral-100)/40 py-2 pl-4 pr-4 rounded-r-2xl">
+                        <p class="text-xl font-semibold italic leading-snug text-(--primary-500)">
+                            x
+                        </p>
+                    </div>
+                    <br/>
+                    <p>
+                        x
+                    </p>
+                    <br/>
+                    <p>
+                        x
+                    </p>
+                    <br/>
+                    <p>
+                        x
+                    </p>
+                    <br/>
+                    <div class="rounded-lg bg-(--primary-500) p-6 text-white">
+                        <p class="m-0">
+                            While hyperscalers have used these patterns internally for years, <strong>Icebreaker Data</strong> 
+                            is the first platform to bring <strong>native Query Isolation</strong> directly to the enterprise data stack.
+                        </p>
+                    </div>
+                </div>
+
+                <!--<footer class="mt-12 pt-8 border-t border-(--neutral-300) flex items-center justify-between">
+                    <span class="font-bold text-(--primary-500)">Icebreaker Technical Brief #04</span>
+                    <a href="#pillars" class="text-(--secondary-500) font-bold hover:underline">Learn how we do it →</a>
+                </footer>
+                -->
+            </article>
+            
         </div>
     </section>
     <FullWidth>
-        <h4 class="text-4xl">heading 4</h4>
-        <p class="text-xl">
-            some text 
-        </p>
-    </FullWidth>
-    <section class="mt-8">
-        <div class="container">
-            <p class="text-2xl">
-                text
-            </p>
-        </div>
-    </section>
+        <h2>Comparing Icebreaker</h2>
+        <ComparisonTable title="Comparison between Traditional Warehouses and Icebreaker Data" />
+</FullWidth>
 </DefaultLayout>
