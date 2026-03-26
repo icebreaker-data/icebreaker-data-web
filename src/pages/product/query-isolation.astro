@@ -4,33 +4,36 @@ import FullWidth from '../../components/FullWidth.astro'
 import ComparisonTable from '../../components/QueryIsolationComparisonTable.astro'
 import FeaturePillar from '../../components/FeaturePillar.astro'
 import { Link } from 'accessible-astro-components'
+import DemandShaping from './demand-shaping.astro'
+import DemandShapingComparisonTable from '../../components/DemandShapingComparisonTable.astro'
 
 const technicalPillars = [
   {
     index: "01",
-    title: "The Icebreaker Broker",
-    description: "A hyperscaler-grade admission controller that replaces static queuing with workload-aware orchestration.",
+    title: "Diverse Compute Fleet",
+    description: "You specify the list of allowable compute instances.",
     items: [
-      "<strong>Sovereign Allocation:</strong> Instead of assigning a query to a pre-existing cluster, the Broker provisions a dedicated execution pod sized to the query's specific memory and CPU requirements.",
-      "<strong>Pre-emptive Scheduling:</strong> Critical workloads can physically pre-empt lower-priority tasks, reclaiming resources at the kernel level rather than waiting for a logical slot to open."
+      "Configure your fleet with the smallest and largest instance types you want to use.",
+      "Specify a few instance types for your day-to-day workloads.",
+      "Icebreaker will pick the best instance for the current workload at the best price."
     ]
   },
   {
     index: "02",
     title: "Ephemeral Pod Execution",
-    description: "Moving the security boundary from the software layer to the hardware-enforced container boundary.",
+    description: "The \"where\" of Query Isolation.",
     items: [
-      "<strong>Zero-Trust Memory:</strong> By utilizing standalone K8S pods, Icebreaker ensures that every query has its own private memory heap, eliminating the 'Leaky JVM' risks found in shared Spark or Snowflake clusters.",
-      "<strong>Stateless Lifecycle:</strong> Pods are born for a single query and destroyed immediately upon completion, ensuring zero data persistence or residual state."
+        "Every <strong>query is right-sized</strong> to use an instance with appropriate memory and CPU. The instance may be running other jobs and have idle capacity, or a new instance may be spun up.",
+        "Every <strong>query is secure</strong>, as it runs in its own isolated, ephemeral pod.",
     ]
   },
   {
     index: "03",
-    title: "DataFusion Runtime",
-    description: "A high-performance execution engine designed for the era of micro-isolation.",
+    title: "Lightweight Query Engine",
+    description: "The \"how\" of Query Isolation.",
     items: [
-      "<strong>Eliminating JVM Overhead:</strong> By using a Rust-based engine, Icebreaker avoids the massive 'Cold Start' and memory management penalties that make traditional pod isolation too slow for production.",
-      "<strong>VPC-Native Privacy:</strong> Execution happens within your security perimeter, governed by task-level IAM roles and security groups."
+        "Each Icebreaker pod runs its own <strong>lightweight query engine</strong>, built in Rust for the data lake.",
+        "No JVM overhead: no cold start, memory management penalties, or \"leaky JVM\" risks.",
     ]
   }
 ];
