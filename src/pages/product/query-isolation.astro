@@ -8,29 +8,29 @@ import { Link } from 'accessible-astro-components'
 const technicalPillars = [
   {
     index: "01",
-    title: "Ephemeral Pod Sandboxing",
-    description: "Icebreaker moves the isolation boundary from the 'Warehouse' to the individual query.",
+    title: "The Icebreaker Broker",
+    description: "A hyperscaler-grade admission controller that replaces static queuing with workload-aware orchestration.",
     items: [
-      "<strong>Zero Persistence:</strong> Every query runs in a dedicated K8S pod that is created on-demand and destroyed immediately upon completion.",
-      "<strong>Physical Separation:</strong> Unlike logical resource groups, pods provide a hard kernel-level boundary for CPU and memory."
+      "<strong>Sovereign Allocation:</strong> Instead of assigning a query to a pre-existing cluster, the Broker provisions a dedicated execution pod sized to the query's specific memory and CPU requirements.",
+      "<strong>Pre-emptive Scheduling:</strong> Critical workloads can physically pre-empt lower-priority tasks, reclaiming resources at the kernel level rather than waiting for a logical slot to open."
     ]
   },
   {
     index: "02",
-    title: "DataFusion Engine",
-    description: "The 'Secret Sauce' that makes atomic isolation fast enough for production use.",
+    title: "Ephemeral Pod Execution",
+    description: "Moving the security boundary from the software layer to the hardware-enforced container boundary.",
     items: [
-      "<strong>Sub-Second Startup:</strong> By utilizing a lightweight, Rust-based engine, Icebreaker avoids the 'Cold Start' penalty of heavy JVM warehouses.",
-      "<strong>In-Memory Safety:</strong> Data is processed entirely within the volatile memory of the pod and never touches persistent shared storage."
+      "<strong>Zero-Trust Memory:</strong> By utilizing standalone K8S pods, Icebreaker ensures that every query has its own private memory heap, eliminating the 'Leaky JVM' risks found in shared Spark or Snowflake clusters.",
+      "<strong>Stateless Lifecycle:</strong> Pods are born for a single query and destroyed immediately upon completion, ensuring zero data persistence or residual state."
     ]
   },
   {
     index: "03",
-    title: "VPC-Native Execution",
-    description: "Your data never leaves your perimeter, and your queries never share a process.",
+    title: "DataFusion Runtime",
+    description: "A high-performance execution engine designed for the era of micro-isolation.",
     items: [
-      "<strong>Network Isolation:</strong> Each execution pod is governed by your VPC’s security groups and IAM roles at the task level.",
-      "<strong>Multi-Tenant Integrity:</strong> Physically isolate sensitive HR or financial data queries from general-purpose AI agent traffic."
+      "<strong>Eliminating JVM Overhead:</strong> By using a Rust-based engine, Icebreaker avoids the massive 'Cold Start' and memory management penalties that make traditional pod isolation too slow for production.",
+      "<strong>VPC-Native Privacy:</strong> Execution happens within your security perimeter, governed by task-level IAM roles and security groups."
     ]
   }
 ];
@@ -39,84 +39,88 @@ const technicalPillars = [
 <DefaultLayout title="Query Isolation | Icebreaker Data">
     <section>
         <div class="container">
-            <h1 class="text-center text-6xl md:text-left">
-                Query Isolation
-            </h1>
-        </div>
-    </section>
-
-    <section class="mt-8">
-        <div class="container">
-            <p class="text-2xl">
-                Guarantee the secure and successful execution of every query. 
+            <h1 class="text-6xl font-extrabold mb-6">Query Isolation</h1>
+            <p class="text-2xl leading-relaxed max-w-4xl opacity-90">
+                Guarantee the secure and successful execution of every query.
             </p>
         </div>
     </section>
 
     <FullWidth>
-        <div class="container grid md:grid-cols-2 gap-12 items-center py-12">
-            <div class="p-8 rounded-2xl shadow-xl border-t-4 border-(--primary-400) bg-(--neutral-900)/10">
-                <h4 class="text-2xl font-bold mb-6">The Noisy Neighbor Problem</h4>
+        <div class="container grid md:grid-cols-2 gap-12 items-center">
+            <div class="p-8 rounded-2xl shadow-xl border-t-4 border-(--primary-400)">
+                <h4 class="text-2xl font-bold mb-6 ">What's Wrong with Right-Sizing</h4>
                 <ul class="list-warning text-lg space-y-4">
-                    <li><strong>Cluster Contention:</strong> Background pipelines starve mission-critical dashboards of CPU cycles.</li>
-                    <li><strong>Agentic Bloat:</strong> AI agents submit thousands of small requests on oversized compute.</li>
-                    <li><strong>Security Fragility:</strong> Logical RBAC is hard to manage; a physical security boundary works.</li>
-                    <li><strong>Shared JVM Risk:</strong> A single query can crash an entire warehouse or cluster.</li>
+                    <li>Warehouses and clusters are sized for aggregate workloads.</li> 
+                    <li>Individual queries have wildly different memory and compute requirements.</li>
+                    <li>Auto-scaling forces overpaying for compute that may not even be optimal for the job.</li>
                 </ul>
             </div>
             <div>
                 <p class="text-xl opacity-80">
-                    Traditional warehouses rely on <strong>Logical Isolation</strong>. You segment by department or warehouse size, but under the hood, queries are still fighting for the same memory heap and thread pools. 
+                    It is impossible to match a conventional cluster or warehouse to actual demand. You over-pay for idle compute that may not even meet your performance goals.
                 </p>
                 <br/>
                 <p class="text-xl opacity-80">
-                    Icebreaker uses hyperscaler-grade, atomic <strong>Query Isolation</strong>. We decouple the execution from the cluster, ensuring every query—no matter how 'greedy'—has its own private lane.
+                    Icebreaker breaks through with <strong>isolated query execution</strong>. 
+                    We implement the same fine-grained isolation patterns used by hyperscalers, 
+                    ensuring every query is physically sandboxed within its own ephemeral execution environment.
                 </p>
             </div>
         </div>
     </FullWidth>
 
-<section class="bg-(--secondary-400) py-24">
-    <div class="container">
-        <article class="mx-auto max-w-3xl rounded-3xl bg-white p-10 md:p-16 shadow-2xl text-(--neutral-800) relative overflow-hidden">
-            
-            <div class="absolute top-0 right-0 w-32 h-32 bg-(--primary-500) clip-path-poly opacity-10"></div>
+    <section class="bg-(--primary-400) py-24">
+        <div class="container">
+            <article class="mx-auto max-w-4xl rounded-3xl bg-white p-10 md:p-16 shadow-2xl text-(--neutral-800) relative overflow-hidden">
+                <header class="mb-12">
+                    <div class="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-(--primary-500) mb-4">
+                        <span class="border-2 border-(--primary-500) px-2 py-1 rounded">Key Concept</span>
+                        <span>•</span>
+                        <span>Technical Deep Dive</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-(--primary-500) leading-tight">
+                        Beyond the Cluster: The Evolution of Isolation
+                    </h2>
+                </header>
 
-            <header class="mb-10">
-                <div class="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-(--primary-500) mb-4">
-                    <span class="border-2 border-(--primary-500) px-2 py-1 rounded">Key Concept</span>
-                    <span>•</span>
-                    <span>3 Min Read</span>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-(--primary-500) leading-tight">
-                    What is Query Isolation?
-                </h2>
-            </header>
-
-                <div>
+                <div class="prose prose-lg max-w-none text-(--neutral-700) space-y-6">
                     <p>
-                        x
-                    </p><br/>
-                    
+                        Data engineering has historically struggled with a trade-off: <strong>Performance vs. Safety.</strong> To get speed, we share resources in a "Warehouse." To get safety, we isolate workloads into dedicated "VMs." Neither model works for the high-concurrency, security-first world of Agentic AI.
+                    </p>
 
-                    <p>
-                        By running a lightweight <strong>DataFusion</strong> engine inside a standalone K8S pod, we achieve physical resource enclosure. If an AI agent goes rogue and attempts to consume excessive memory, it hits a hard limit at the pod level. It cannot "leak" into the memory space of your executive dashboard query running on the same underlying node. 
-                    </p><br/>
-
-                    <p>
-                        This isn't just about performance—it's about <strong>Security.</strong> True multi-tenancy requires that sensitive data queries are physically segmented at the execution layer. In Icebreaker, once a query is finished, its pod is destroyed. There is zero persistence, zero residue, and zero shared state.
-                    </p><br/>
-
-                    <blockquote class="border-l-4 border-(--primary-500) bg-(--neutral-100) p-6 my-8 rounded-r-xl">
-                        <p class="text-xl italic font-semibold text-(--primary-500) mb-0">
-                            x
-                        </p><br/>
-                    </blockquote>
+                    <h3 class="text-2xl font-bold text-(--primary-500) pt-4">The Boundary Spectrum</h3>
+                    <div class="grid md:grid-cols-3 gap-6 my-8">
+                        <div class="p-4 bg-(--neutral-100) rounded-xl border border-(--neutral-200)">
+                            <h4 class="font-bold text-sm mb-2 uppercase">The VM Boundary</h4>
+                            <p class="text-xs">Physical isolation, but massive overhead. High 'Cold Start' times and wasted idle resources make it impractical for individual queries.</p>
+                        </div>
+                        <div class="p-4 bg-(--neutral-100) rounded-xl border border-(--neutral-200)">
+                            <h4 class="font-bold text-sm mb-2 uppercase">The Cluster Boundary</h4>
+                            <p class="text-xs">Logical isolation in a shared JVM. Fast, but 'leaky.' One query can starve another or potentially access shared memory states.</p>
+                        </div>
+                        <div class="p-4 bg-(--primary-500) text-white rounded-xl shadow-lg">
+                            <h4 class="font-bold text-sm mb-2 uppercase">Compute Sovereignty</h4>
+                            <p class="text-xs">Physical isolation at the query level. Ephemeral pods and DataFusion provide VM-level safety with cluster-level performance.</p>
+                        </div>
+                    </div>
 
                     <p>
-                        Managing thousands of concurrent, isolated pods requires a level of orchestration that traditional warehouses were not built for. 
-                        That's where the Icebreaker <Link href="/product/demand-shaping">Demand Shaping</Link> comes in, ensuring that while every query 
-                        is isolated, the underlying infrastructure remains perfectly optimized for each and every job.
+                        The core technical problem—most famously explored in the <em>Membrane</em> research—is that imperative code and complex queries cannot be trusted in a shared-process environment. In a traditional Spark or Warehouse executor, a single unoptimized query doesn't just run slow; it threatens the integrity of the entire engine.
+                    </p>
+
+                    <p>
+                        Icebreaker solves this by enforcing <strong>Atomic Isolation</strong>. We move the security boundary from the software layer to the hardware-enforced container boundary. Every query—from a "greedy" agentic prompt to a multi-terabyte join—executes in its own private, sovereign world.
+                    </p>
+
+                    <div class="rounded-lg bg-(--primary-500) p-6 text-white my-8">
+                        <p class="m-0 italic">
+                           "By decoupling the execution lifecycle from the underlying infrastructure, Icebreaker ensures that sensitive data and demanding workloads never share a 'Membrane.' This is the same pattern hyperscalers use to protect their own multi-tenant services, now available for your private data cloud."
+                        </p>
+                    </div>
+
+                    <p>
+                        While this ensures total integrity, it also provides the foundation for <Link href="/product/demand-shaping">Demand Shaping</Link>. Once every query is isolated, you can finally orchestrate your data stack based on the actual value of the workload, not the limitations of your cluster size.
                     </p>
                 </div>
             </article>
@@ -126,9 +130,9 @@ const technicalPillars = [
     <section class="py-24">
         <div class="container">
             <div class="mb-16 text-center">
-                <h2 class="text-4xl font-bold mb-4">The "How": Technical Pillars</h2>
+                <h2 class="text-4xl font-bold mb-4">How Icebreaker Enforces Sovereignty</h2>
                 <p class="text-xl mx-auto opacity-80">
-                    The architecture that makes atomic query isolation possible.
+                    The architecture that brings hyperscaler-grade isolation to the enterprise.
                 </p>
             </div>
 
@@ -148,7 +152,7 @@ const technicalPillars = [
     <FullWidth>
         <div class="container py-12">
             <h2 class="text-4xl font-bold mb-8">Comparing Isolation Models</h2>
-            <ComparisonTable title="Comparison between Traditional Warehouses and Icebreaker Data" />
+            <ComparisonTable title="Architectural Comparison: Icebreaker vs. Traditional Warehouses" />
         </div>
     </FullWidth>
 </DefaultLayout>
