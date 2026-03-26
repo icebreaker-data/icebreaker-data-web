@@ -89,29 +89,30 @@ const technicalPillars = [
 
                 <div class="prose prose-lg max-w-none text-(--neutral-700) space-y-6">
                     <p>
-                        Conventional data warehouses and clusters are built on the "Shared Process" model. 
+                        Conventional data warehouses and clusters are built on a shared process model. 
                         Whether you call it a Warehouse or a Spark Executor, multiple queries from different 
                         users co-exist within the same memory heap and CPU thread pool. 
-                        This architecture creates two systemic failures that "right-sizing" cannot fix.
+                        This architecture creates two systemic failures that attempts to "right-size" cannot fix.
                     </p><br/>
-
+                    <hr><br/>
                     <p>
-                        1. The Logical Boundary Failure
+                        <strong>1. The Logical Boundary Failure. </strong>
                         In a shared cluster, isolation is a "polite request" made by software. 
                         When a chatty AI agent submits thousands of rapid-fire queries, or somebody runs a massive, unoptimized join, 
-                        they don't just run slowly—they consume the shared resources of every other user in that cluster. 
-                        Because they share a JVM, a single "query from hell" can starve the entire environment, crashing your production dashboards.
+                        those queries don't just run slowly—they consume the shared resources of every other query in that cluster. 
+                        Because they share a JVM, a single bad query can consume the entire environment's resources, crashing your production dashboards.
                     </p><br/>
 
                     <p>
-                        2. The Multi-Tenant Security Gap
-                        True security requires physical separation. 
-                        In a shared-process environment, sensitive data queries (like HR or Finance) technically share a memory space with general-purpose analytics. 
+                        <strong>2. The Multi-Tenant Security Gap. </strong>
+                        Comprehensive security requires physical separation. 
+                        In a shared-process environment, sensitive data queries (like HR or Finance) share a memory space with general-purpose analytics. 
                         If the engine's software-level access controls are bypassed, there is no physical "membrane" to prevent cross-query data leakage.
+                        (If you're curious to learn more, read this <Link href="https://www.amazon.science/publications/membrane-safe-and-performant-data-access-controls-in-apache-spark-in-the-presence-of-imperative-code" isExternal>research paper</Link>).
                     </p><br/>
-
+                    <hr><br/>
                     <p>
-                        Icebreaker replaces shared processes with atomic-level, Query Isolation. 
+                        Icebreaker replaces shared processes with <strong>atomic-level, native Query Isolation</strong>. 
                         We move the isolation boundary from the warehouse or cluster  to an ephemeral pod that executes exactly one individual query.
                     </p><br/>
 
@@ -122,19 +123,23 @@ const technicalPillars = [
                         </li>
                         <li>
                             <strong>The Lightweight Engine:</strong> We use a Rust-based DataFusion engine inside each pod. 
-                            This allows us to spin up a private, "sovereign" execution environment in sub-seconds—avoiding 
-                            the massive "cold start" penalty of traditional JVM-based containers.
+                            This allows us to spin up a private, query execution environment in sub-seconds—avoiding 
+                            the massive cold start performance penalty of traditional JVM-based containers.
                         </li>
                         <li>
                             <strong>Physical Resource Limits: </strong>Because each query is in its own pod, we enforce hard kernel-level limits on CPU and memory. 
-                            A greedy agent can hit its own limit, but it can never "leak" into the resources of another query.
+                            Always-on AI agents can hit their own limits, but their jobs can never "leak" into the resources of another query.
+                        </li>
+                        <li>
+                            <strong>Independent and Secure: </strong>
+                            With inherent query isolation, Icebreaker ensures that the success of a mission-critical query is never dependent on the behavior of its neighbors. 
                         </li>
                     </ul>    
 
                     <div class="rounded-lg bg-(--primary-500) p-6 text-white my-8">
                         <p class="m-0 italic">
-                            With inherent query isolation, Icebreaker ensures that the success of a mission-critical query is never dependent on the behavior of its neighbors. 
-                            This is the same pattern hyperscalers use to protect their own multi-tenant services, now available for your private data cloud.
+                            Icebreaker uses the same query isolation pattern that hyperscalers use to protect their own multi-tenant services. 
+                            What was once their profit margin is now available for your private data cloud.
                         </p>
                     </div>
                 </div>
