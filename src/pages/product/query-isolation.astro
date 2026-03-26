@@ -54,20 +54,20 @@ const technicalPillars = [
             <div class="p-8 rounded-2xl shadow-xl border-t-4 border-(--primary-400)">
                 <h4 class="text-2xl font-bold mb-6 ">What's Wrong with Right-Sizing</h4>
                 <ul class="list-warning text-lg space-y-4">
-                    <li>Warehouses and clusters are sized for aggregate workloads.</li> 
+                    <li>Warehouses and clusters are sized for aggregate workloads, using one type of compute instance.</li> 
                     <li>Individual queries have wildly different memory and compute requirements.</li>
-                    <li>Auto-scaling forces overpaying for compute that may not even be optimal for the job.</li>
+                    <li>Auto-scaling forces overpaying for compute that isn't optimal for individual queries.</li>
                 </ul>
             </div>
             <div>
                 <p class="text-xl opacity-80">
-                    It is impossible to match a conventional cluster or warehouse to actual demand. You over-pay for idle compute that may not even meet your performance goals.
-                </p>
-                <br/>
+                    It is impossible to match a conventional cluster or warehouse to actual demand. 
+                    You over-pay for idle compute that may not meet your performance goals.
+                </p><br/>
+                
                 <p class="text-xl opacity-80">
-                    Icebreaker breaks through with <strong>isolated query execution</strong>. 
-                    We implement the same fine-grained isolation patterns used by hyperscalers, 
-                    ensuring every query is physically sandboxed within its own ephemeral execution environment.
+                    Icebreaker is the only <strong>serverless query</strong> platform that you control in your own VPC.
+                    One of the critical reasons we break through where others can't is because we perfected <strong>Query Isolation</strong>. 
                 </p>
             </div>
         </div>
