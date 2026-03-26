@@ -37,7 +37,19 @@ import { Accordion, AccordionItem, Link} from 'accessible-astro-components'
       </div>
       <div>
         <Accordion>
-          <AccordionItemTOP title="Does Icebreaker work with or replace Snowflake/Athena/Redshift/BigQuery?" open>
+          <AccordionItemTOP title="What exactly do you mean by *serverless* and why is it such a big deal? " open>
+            <p>
+              Serverless computing means you don't have to manage IT infrastructure yourself: you call a publicly available service and run your code. 
+              Google BigQuery and Amazon Athena are examples of serverless query platforms. You give it your data, run your queries, and pay-as-you-go. Super easy.
+            </p><br/>
+            <p>
+              Icebreaker brings commerical back-end IT infrastructure for serverless query platforms into the enterprise IT department. 
+              While that seems counter-intuitive, there are good reasons for it: keeping your data completely in your VPC is more secure, 
+              it's less expensive than anything else out there (because it's incredibly efficient), and configuring Icebreaker is a lot easier than 
+              "right-sizing" warehouses or clusters and figuring out how to route queries.
+            </p>
+          </AccordionItemTOP>
+          <AccordionItemTOP title="Does Icebreaker work with or replace Snowflake/Athena/Redshift/BigQuery?">
             <p>
               Icebreaker replaces SQL workloads that use Iceberg tables. Our perpective is there's no point in paying premium pricing for what are now commodity services.
             </p>
