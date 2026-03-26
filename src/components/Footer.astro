@@ -1,32 +1,66 @@
 ---
 import CallToAction from './CallToAction.astro'
-import Logo from './Logo.astro'
-import { Heading, Link } from 'accessible-astro-components'
+import { Image } from 'astro:assets'
+import logo from '../assets/img/logo.svg'
+import { Link } from 'accessible-astro-components'
 
-/**
- * Footer Component
- *
- * @description A component that displays the footer of the website
- */
 const currentYear = new Date().getFullYear()
 ---
 
-<footer>
-  <CallToAction />
-  <section>
-    <div class="container flex flex-col gap-4 md:flex-row md:justify-between">
-      <p>
-        &copy; {currentYear} - Icebreaker Data, Inc. All rights reserved.
-      </p>
-      <p>
-        Icon credits: <Link href="https://www.flaticon.com/" isExternal title="Icon art attribution">HAJICON - Flaticon</Link>
-      </p>
-    </div>
-  </section>
-</footer>
+<footer class="text-neutral-100">
+  <div class="py-6 border-b border-white/50">
+    <CallToAction />
+  </div>
 
-<style>
-  section {
-    border-top: 1px solid var(--border-color-subtle);
-  }
-</style>
+  <div class="container mx-auto px-6 max-w-7xl">
+    <div class="md:py-6 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+      
+      <div class="md:col-span-8 flex flex-row items-center gap-8">
+        <div class="shrink-0 flex items-center">
+          <Image src={logo} width='188' height='148' alt="Icebreaker Logo"/>
+        </div>
+        
+        <p class="text-xl text-neutral-200 leading-relaxed m-0 pl-8 max-w-md">
+          Icebreaker brings provider-grade <strong>serverless automation</strong> and <strong>query-level economics</strong> to your private data cloud.
+        </p>
+      </div>
+
+      <div class="md:col-span-4 grid grid-cols-2 gap-4">
+        <nav>
+          <h4 class="text-secondary-300 text-xs font-bold uppercase tracking-widest mb-4 m-0">
+            Product
+          </h4>
+          <ul class="list-none p-0 mt-4 flex flex-col gap-2">
+            <li><a href="/product/technology-stack/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Tech Stack</a></li>
+            <li><a href="/product/query-isolation/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Query Isolation</a></li>
+            <li><a href="/product/demand-shaping/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Demand Shaping</a></li>
+            <li><a href="/product/performance/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Performance</a></li>
+          </ul>
+        </nav>
+
+        <nav>
+          <h4 class="text-secondary-300 text-xs font-bold uppercase tracking-widest mb-4 m-0">
+            Company
+          </h4>
+          <ul class="list-none p-0 mt-4 flex flex-col gap-2">
+            <li><a href="/about/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">About Us</a></li>
+            <li><a href="/usecases/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Use Cases</a></li>
+            <li><a href="/resources/faq/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">FAQ</a></li>
+            <li><a href="/contact/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 py-2 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-neutral-400 text-sm m-0">
+        &copy; {currentYear} Icebreaker Data, Inc. All rights reserved.
+      </p>
+      <div class="flex items-center gap-6">
+        <Link href="https://www.flaticon.com/" isExternal class="text-[10px] uppercase tracking-tighter text-neutral-700 no-underline hover:text-neutral-400">
+          Icons by HAJICON
+        </Link>
+      </div>
+    </div>
+  </div>
+</footer>

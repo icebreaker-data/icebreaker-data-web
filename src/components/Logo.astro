@@ -2,6 +2,7 @@
 import { siteConfig } from '../../site.config.mjs'
 import { Link } from 'accessible-astro-components'
 import { Image } from 'astro:assets'
+import logo from '../assets/img/logo.svg'
 
 /**
  * Logo Component
@@ -22,11 +23,11 @@ const { loading = 'eager' }: Props = Astro.props
 
 <Link href="/" class="flex items-center gap-2">
   <Image
-    src={siteConfig.siteLogo}
-    alt=""
+    src={logo}
+    alt="Icebreaker Logo"
     aria-hidden="true"
-    width="47"
-    height="37"
+    width="94"
+    height="74"
     loading={loading}
   />
   <span class="text-sm font-bold sm:text-lg">{siteConfig.name}</span>
