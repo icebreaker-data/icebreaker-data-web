@@ -15,7 +15,7 @@ const { title } = Astro.props;
     <tbody class="divide-y divide-(--neutral-300) dark:divide-(--neutral-700)">
       <tr class="bg-(--neutral-100) dark:bg-(--neutral-900)">
         <th scope="row" class="bg-(--neutral-200) p-4 font-medium text-(--neutral-800) dark:bg-(--neutral-800) dark:text-(--neutral-200)">Resource Contention</th>
-        <td class="p-4 text-(--neutral-700) dark:text-(--neutral-400)">High: Multiple queries share a single JVM/process. One bad join can starve the entire cluster's memory and CPU.</td>
+        <td class="p-4 text-(--neutral-700) dark:text-(--neutral-400)">High: Multiple queries share a single JVM/process. One bad join can consume the entire cluster's memory and CPU.</td>
         <td class="p-4 font-bold text-(--primary-500) dark:text-(--secondary-400)">Minimal: Each query gets a dedicated K8S pod with specific resource requests and limits. It eliminates "Noisy Neighbor" effects from other queries.</td>
       </tr>
       </tbody>
@@ -34,7 +34,7 @@ const { title } = Astro.props;
             <tr class="bg-(--neutral-100) dark:bg-(--neutral-900)">
         <th scope="row" class="bg-(--neutral-200) p-4 font-medium text-(--neutral-800) dark:bg-(--neutral-800) dark:text-(--neutral-200)">Scaling</th>
         <td class="p-4 text-(--neutral-700) dark:text-(--neutral-400)">Coarse: cluster or warehouse</td>
-        <td class="p-4 font-bold text-(--primary-500) dark:text-(--secondary-400)">Granular: elastic K8S per query</td>
+        <td class="p-4 font-bold text-(--primary-500) dark:text-(--secondary-400)">Granular: elastic K8S pod per query</td>
       </tr>
       </tr>
       </tbody>

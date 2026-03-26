@@ -80,51 +80,63 @@ const technicalPillars = [
                     <div class="flex items-center gap-3 text-xs font-black uppercase tracking-widest text-(--primary-500) mb-4">
                         <span class="border-2 border-(--primary-500) px-2 py-1 rounded">Key Concept</span>
                         <span>•</span>
-                        <span>Technical Deep Dive</span>
+                        <span>3 Min Read</span>
                     </div>
                     <h2 class="text-4xl md:text-5xl font-extrabold text-(--primary-500) leading-tight">
-                        Beyond the Cluster: The Evolution of Isolation
+                        What is Query Isolation
                     </h2>
                 </header>
 
                 <div class="prose prose-lg max-w-none text-(--neutral-700) space-y-6">
                     <p>
-                        Data engineering has historically struggled with a trade-off: <strong>Performance vs. Safety.</strong> To get speed, we share resources in a "Warehouse." To get safety, we isolate workloads into dedicated "VMs." Neither model works for the high-concurrency, security-first world of Agentic AI.
-                    </p>
-
-                    <h3 class="text-2xl font-bold text-(--primary-500) pt-4">The Boundary Spectrum</h3>
-                    <div class="grid md:grid-cols-3 gap-6 my-8">
-                        <div class="p-4 bg-(--neutral-100) rounded-xl border border-(--neutral-200)">
-                            <h4 class="font-bold text-sm mb-2 uppercase">The VM Boundary</h4>
-                            <p class="text-xs">Physical isolation, but massive overhead. High 'Cold Start' times and wasted idle resources make it impractical for individual queries.</p>
-                        </div>
-                        <div class="p-4 bg-(--neutral-100) rounded-xl border border-(--neutral-200)">
-                            <h4 class="font-bold text-sm mb-2 uppercase">The Cluster Boundary</h4>
-                            <p class="text-xs">Logical isolation in a shared JVM. Fast, but 'leaky.' One query can starve another or potentially access shared memory states.</p>
-                        </div>
-                        <div class="p-4 bg-(--primary-500) text-white rounded-xl shadow-lg">
-                            <h4 class="font-bold text-sm mb-2 uppercase">Compute Sovereignty</h4>
-                            <p class="text-xs">Physical isolation at the query level. Ephemeral pods and DataFusion provide VM-level safety with cluster-level performance.</p>
-                        </div>
-                    </div>
+                        Conventional data warehouses and clusters are built on the "Shared Process" model. 
+                        Whether you call it a Warehouse or a Spark Executor, multiple queries from different 
+                        users co-exist within the same memory heap and CPU thread pool. 
+                        This architecture creates two systemic failures that "right-sizing" cannot fix.
+                    </p><br/>
 
                     <p>
-                        The core technical problem—most famously explored in the <em>Membrane</em> research—is that imperative code and complex queries cannot be trusted in a shared-process environment. In a traditional Spark or Warehouse executor, a single unoptimized query doesn't just run slow; it threatens the integrity of the entire engine.
-                    </p>
+                        1. The Logical Boundary Failure
+                        In a shared cluster, isolation is a "polite request" made by software. 
+                        When a chatty AI agent submits thousands of rapid-fire queries, or somebody runs a massive, unoptimized join, 
+                        they don't just run slowly—they consume the shared resources of every other user in that cluster. 
+                        Because they share a JVM, a single "query from hell" can starve the entire environment, crashing your production dashboards.
+                    </p><br/>
 
                     <p>
-                        Icebreaker solves this by enforcing <strong>Atomic Isolation</strong>. We move the security boundary from the software layer to the hardware-enforced container boundary. Every query—from a "greedy" agentic prompt to a multi-terabyte join—executes in its own private, sovereign world.
-                    </p>
+                        2. The Multi-Tenant Security Gap
+                        True security requires physical separation. 
+                        In a shared-process environment, sensitive data queries (like HR or Finance) technically share a memory space with general-purpose analytics. 
+                        If the engine's software-level access controls are bypassed, there is no physical "membrane" to prevent cross-query data leakage.
+                    </p><br/>
+
+                    <p>
+                        Icebreaker replaces shared processes with atomic-level, Query Isolation. 
+                        We move the isolation boundary from the warehouse or cluster  to an ephemeral pod that executes exactly one individual query.
+                    </p><br/>
+
+                    <ul>
+                        <li>
+                            <strong>Ephemeral Sandboxing:</strong> Every incoming query is assigned to its own dedicated, single-use K8S pod. 
+                            There is zero shared memory and zero shared state.
+                        </li>
+                        <li>
+                            <strong>The Lightweight Engine:</strong> We use a Rust-based DataFusion engine inside each pod. 
+                            This allows us to spin up a private, "sovereign" execution environment in sub-seconds—avoiding 
+                            the massive "cold start" penalty of traditional JVM-based containers.
+                        </li>
+                        <li>
+                            <strong>Physical Resource Limits: </strong>Because each query is in its own pod, we enforce hard kernel-level limits on CPU and memory. 
+                            A greedy agent can hit its own limit, but it can never "leak" into the resources of another query.
+                        </li>
+                    </ul>    
 
                     <div class="rounded-lg bg-(--primary-500) p-6 text-white my-8">
                         <p class="m-0 italic">
-                           "By decoupling the execution lifecycle from the underlying infrastructure, Icebreaker ensures that sensitive data and demanding workloads never share a 'Membrane.' This is the same pattern hyperscalers use to protect their own multi-tenant services, now available for your private data cloud."
+                            With inherent query isolation, Icebreaker ensures that the success of a mission-critical query is never dependent on the behavior of its neighbors. 
+                            This is the same pattern hyperscalers use to protect their own multi-tenant services, now available for your private data cloud.
                         </p>
                     </div>
-
-                    <p>
-                        While this ensures total integrity, it also provides the foundation for <Link href="/product/demand-shaping">Demand Shaping</Link>. Once every query is isolated, you can finally orchestrate your data stack based on the actual value of the workload, not the limitations of your cluster size.
-                    </p>
                 </div>
             </article>
         </div>
@@ -133,9 +145,9 @@ const technicalPillars = [
     <section class="py-24">
         <div class="container">
             <div class="mb-16 text-center">
-                <h2 class="text-4xl font-bold mb-4">How Icebreaker Enforces Sovereignty</h2>
+                <h2 class="text-4xl font-bold mb-4">How Icebreaker Achieves Query Isolation</h2>
                 <p class="text-xl mx-auto opacity-80">
-                    The architecture that brings hyperscaler-grade isolation to the enterprise.
+                    The architecture that brings hyperscaler-grade query isolation to the enterprise.
                 </p>
             </div>
 
