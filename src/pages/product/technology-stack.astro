@@ -3,10 +3,10 @@ import DefaultLayout from '../../layouts/DefaultLayout.astro';
 import FullWidth from '../../components/FullWidth.astro';
 import Marketecture from '../../components/Marketecture.astro';
 
-import { getCollection, render } from 'astro:content'
+import { getCollection, render } from 'astro:content';
 
 import Feature from '../../components/Feature.astro';
-import { Link } from 'accessible-astro-components'
+import { Link } from 'accessible-astro-components';
 
 const allTechnologies = (await getCollection('technologies')).sort(
     (a, b) => (a.data.order || 0) - (b.data.order || 0),
