@@ -1,8 +1,9 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import FullWidth from '../../components/FullWidth.astro'
+import { Accordion, Link} from 'accessible-astro-components'
 import AccordionItemTOP from '../../components/AccordionItemTOP.astro'
-import { Accordion, AccordionItem, Link} from 'accessible-astro-components'
+
 ---
 
 <DefaultLayout title="FAQ">
@@ -37,17 +38,29 @@ import { Accordion, AccordionItem, Link} from 'accessible-astro-components'
       </div>
       <div>
         <Accordion>
-          <AccordionItemTOP title="What exactly do you mean by *serverless* and why is it such a big deal? " open>
+          <AccordionItemTOP title="What exactly do you mean by *serverless* query platform? " open>
             <p>
-              Serverless computing means you don't have to manage IT infrastructure yourself: you call a publicly available service and run your code. 
-              Google BigQuery and Amazon Athena are examples of serverless query platforms. You give it your data, run your queries, and pay-as-you-go. Super easy.
-            </p><br/>
-            <p>
-              Icebreaker brings commerical back-end IT infrastructure for serverless query platforms into the enterprise IT department. 
-              While that seems counter-intuitive, there are good reasons for it: keeping your data completely in your VPC is more secure, 
-              it's less expensive than anything else out there (because it's incredibly efficient), and configuring Icebreaker is a lot easier than 
-              "right-sizing" warehouses or clusters and figuring out how to route queries.
+              Traditionally, serverless means you offload server management to a public provider like Google BigQuery or Amazon Athena. 
+              You pay-as-you-go, but you lose control over where your data sits and how the underlying compute is managed.<br/><br/>
+              Icebreaker brings that same provider-grade infrastructure directly into your own VPC. 
+              We automate the backend IT—specifically using one-query-per-pod containerization—to bin-pack your workloads onto existing resources. 
+              You get the "it just works" experience of a public service, but it runs entirely on your private infrastructure.
             </p>
+          </AccordionItemTOP>
+          <AccordionItemTOP title="Deploying a provider-grade serverless query platform in my VPC seems like overkill." open>
+            <p>
+              It's actually the opposite of overkill—it's the ultimate lean setup. 
+              While "right-sizing" traditional warehouses or clusters requires constant tuning, Icebreaker's serverless model optimizes every query automatically.
+            </p>
+          </AccordionItemTOP>
+          <AccordionItemTOP title="Why would I deploy Icebreaker in my VPC?" open>
+            <ul>
+              <li><strong>Security: </strong>Your data never leaves your network.</li><br/>
+              <li><strong>Query-Level Economics: </strong>Because we execute queries in isolated pods that fill "gaps" in your existing idle capacity, 
+                it is significantly less expensive than sizing and maintaining dedicated clusters and warehouses.</li><br/>
+              <li><strong>Operational Simplicity: </strong>You stop worrying about routing queries or scaling instances; 
+                you simply run the query, and the platform handles the micro-scheduling automatically.</li>
+            </ul>
           </AccordionItemTOP>
           <AccordionItemTOP title="Does Icebreaker work with or replace Snowflake/Athena/Redshift/BigQuery?">
             <p>
