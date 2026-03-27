@@ -59,23 +59,47 @@ console.log('Loaded technologies:',allTechnologies); // will show in the termina
 </div>
 </section>
     <FullWidth>
-        <h4 class="text-4xl">Learn more!</h4>
-        <ul>
-            <li>
-                <Link href="/resources/faq">
-                    Frequently Asked Questions
-                </Link>
-            </li>
-            <li>
-                <Link href="/product/query-isolation/">
-                    Query Isolation
-                </Link>    
-            </li>
-            <li>
-                <Link href="/product/demand-shaping/">
-                    Demand Shaping
-                </Link>    
-            </li>
-        </ul>
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl">Deep Dive into Icebreaker</h2>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                
+                {/* FAQ Card */}
+                <div class="group flex flex-col gap-4 rounded-xl border-2 border-(--neutral-400) p-8 transition-all hover:border-(--neutral-700) hover:bg-(--neutral-500)/10">
+                    <span class="text-sm font-bold uppercase tracking-widest text-(--netural-700)">Resources</span>
+                    <h3 class="text-2xl font-semibold text-(--neutral-700)">FAQ</h3>
+                    <p class="text-xl">Common questions about deployment, VPC security, and pricing.</p>
+                    <div class="mt-auto pt-4 text-2xl">
+                        <Link href="/resources/faq">
+                            Read FAQ
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Query Isolation Card */}
+                <div class="group flex flex-col gap-4 rounded-xl border-2 border-(--neutral-400) p-8 transition-all hover:border-(--primary-300) hover:bg-(--primary-200)/10">
+                    <span class="text-sm font-bold uppercase tracking-widest text-(--primary-500)">Architecture</span>
+                    <h3 class="text-2xl font-semibold text-(--primary-500)">Query Isolation</h3>
+                    <p class="text-xl">How we eliminate noisy neighbor problems and enable query-level economics.</p>
+                    <div class="mt-auto pt-4 text-2xl">
+                        <Link href="/product/query-isolation/">
+                            Key Concept
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Demand Shaping Card */}
+                <div class="group flex flex-col gap-4 rounded-xl border-2 border-(--neutral-400) p-8 transition-all hover:border-(--secondary-300) hover:bg-(--secondary-100)/10">
+                    <span class="text-sm font-bold uppercase tracking-widest text-(--secondary-500)">Performance</span>
+                    <h3 class="text-2xl font-semibold text-(--secondary-500)">Demand Shaping</h3>
+                    <p class="text-xl">How we optimize resource consumption and smooth out spiky workloads.</p>
+                    <div class="mt-auto pt-4 text-2xl">
+                        <Link href="/product/demand-shaping/">
+                            Key Concept
+                        </Link>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </FullWidth>
 </DefaultLayout>
