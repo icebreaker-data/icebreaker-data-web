@@ -7,7 +7,7 @@ import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon/components'
 
 // images
-import savingsImg from '/assets/img/savings.png';
+import savingsImg from '../assets/img/savings.png';
 
 // Simply fetch all quotes
 const quotes = await getCollection('quotes')
@@ -28,7 +28,7 @@ console.log('Loaded quotes:', quotes) // This will show in your terminal during 
       Run <strong>serverless queries in your VPC</strong> with provider-grade resource controls and query-unit economics.
     </p>
   </FullWidth>
-  <ContentMedia imgSrc="/src/assets/img/savings.png">
+  <ContentMedia img={savingsImg} alt="Savings">
     <h2>Control Your Spend</h2>
     <p class="text-xl">
       Agentic AI is fundamantally <a href="/product/demand-shaping/">changing the economics</a> of data analytics. AI agents explore data by trial and error, which consumes resources and costs money. Lots of money.
