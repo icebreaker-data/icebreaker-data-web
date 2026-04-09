@@ -3,14 +3,18 @@ import DefaultLayout from '../layouts/DefaultLayout.astro';
 import Hero from '../components/Hero.astro';
 import ContentMedia from '../components/ContentMedia.astro';
 import FullWidth from '../components/FullWidth.astro';
-import { getCollection } from 'astro:content'
+import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon/components'
+
+// images
+import savingsImg from '/assets/img/savings.png';
+
 // Simply fetch all quotes
 const quotes = await getCollection('quotes')
 console.log('Loaded quotes:', quotes) // This will show in your terminal during build
 ---
 
-<DefaultLayout title="Icebreaker Data | Serverless Data Platform for Agentic AI"
+<DefaultLayout title="Icebreaker Data | Serverless Query Platform for Agentic AI"
   description="A private data cloud that lets you run data operations like a business, not a cost center. Built for AI agents, multi-tenant SaaS, and daily enterprise data workloads.">
   <Hero />
   <FullWidth>
