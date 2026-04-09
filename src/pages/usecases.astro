@@ -2,8 +2,15 @@
 import ContentMedia from '../components/ContentMedia.astro'
 import FullWidth from '../components/FullWidth.astro'
 import DefaultLayout from '../layouts/DefaultLayout.astro'
-import { Icon } from 'astro-icon/components'
 import { Link } from 'accessible-astro-components'
+
+//images
+import costsImg from '../assets/img/costs.png';
+import stopwatchImg from '../assets/img/stopwatch.png';
+import pipelineImg from '../assets/img/pipeline.png';
+import privacyImg from '../assets/img/privacy.png';
+
+
 ---
 
 <DefaultLayout title="Use Cases">
@@ -32,7 +39,7 @@ import { Link } from 'accessible-astro-components'
   </FullWidth>
   <div class="container space-y-0 my-0">
     <section id="agentic-ai">
-      <ContentMedia imgSrc='' reverseImg={true}>
+      <ContentMedia img={costsImg} alt="Expensive" reverseImg={true}>
         <h2>
           Agentic AI Queries
         </h2>
@@ -52,7 +59,7 @@ import { Link } from 'accessible-astro-components'
     </section>
 
     <section id="bi-analytics">
-      <ContentMedia imgSrc=''>
+      <ContentMedia img={stopwatchImg} alt="Fast">
         <h2>
           Data Analytics | Business Intelligence
         </h2>
@@ -67,7 +74,7 @@ import { Link } from 'accessible-astro-components'
       </section>
 
       <section id="etl-elt-pipelines">
-        <ContentMedia imgSrc=''reverseImg={true}>
+        <ContentMedia img={pipelineImg} alt="Pipeline" reverseImg={true}>
         <h2>
           Data Pipelines | ELT | ETL
         </h2>
@@ -82,7 +89,7 @@ import { Link } from 'accessible-astro-components'
       </section>
 
       <section id="multitenant-oem-saas">
-        <ContentMedia imgSrc='' >
+        <ContentMedia img={privacyImg} alt="Private">
         <h2>
           Multi-tenant | OEM | SaaS
         </h2>
