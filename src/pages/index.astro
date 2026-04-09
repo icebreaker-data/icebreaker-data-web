@@ -8,6 +8,8 @@ import { Icon } from 'astro-icon/components'
 
 // images
 import savingsImg from '../assets/img/savings.png';
+import agreementImg from '../assets/img/agreement_512.png';
+import isolationImg from '../assets/img/isolation.png';
 
 // Simply fetch all quotes
 const quotes = await getCollection('quotes')
@@ -43,7 +45,7 @@ console.log('Loaded quotes:', quotes) // This will show in your terminal during 
       </a>
     </div>
   </ContentMedia>
-  <ContentMedia imgSrc="/src/assets/img/agreement_512.png" reverseImg={true}>
+  <ContentMedia img={agreementImg} alt="Agreement" reverseImg={true}>
     <h2>Meet Your SLAs</h2>
     <p class="text-xl">
       You deploy bigger warehouses or clusters than necessary. You know it's wasteful, but there are financial penalties when you don't meet your Service Level Agreements.  
@@ -62,7 +64,7 @@ console.log('Loaded quotes:', quotes) // This will show in your terminal during 
       </a>
     </div>
   </ContentMedia>
-  <ContentMedia imgSrc="/src/assets/img/isolation.png">
+  <ContentMedia img={isolationImg} alt="Isolation">
     <h2>Secure Multi-tenant Data</h2>
     <p class="text-xl">
       SaaS companies struggle to give customers access to their own data without risking "nosey neighbor" leakage. Icebreaker provides <a href="/product/query-isolation/">native, query-level isolation</a> in your VPC with <strong>no clusters to manage</strong>.
