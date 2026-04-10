@@ -1,7 +1,7 @@
 ---
 // The slackbot works in localhost but not from the prod site
 // See https://docs.astro.build/en/guides/on-demand-rendering/ for prerender
-// export const prerender = false
+export const prerender = false
 
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 
@@ -22,6 +22,12 @@ if (Astro.request.method === 'POST') {
 
     console.log('Contact form submission:', requestBody)
 
+    /* 
+    AI recommends replacing the Cloudflare slackbot (below) with an Amplify Function.
+    To prevent spam, ensure your Lambda function's CORS settings 
+    (the Access-Control-Allow-Origin header) are restricted to your 
+    actual production domain rather than `*` .
+    */
     const response = await fetch('https://icebreaker-slack-bot.liamtsang.workers.dev/message', {
       method: 'POST',
       headers: {
