@@ -1,6 +1,6 @@
 ---
-// export const prerender = false // Not needed in 'server' mode
 import DefaultLayout from '../layouts/DefaultLayout.astro'
+export const prerender = false // Not needed in 'server' mode
 
 if (Astro.request.method === 'POST') {
   try {
