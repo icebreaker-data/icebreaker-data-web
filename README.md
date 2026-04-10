@@ -23,11 +23,6 @@ cd icebreaker-data-web
 git clone https://github.com/flynntsang/icebreaker-data-web.git .
 
 npm install
-npm install accessible-astro-components
-npm install astro-seo
-npm install @lucide/astro
-npm install @iconify-json/lucide
-npm install sanitize-html
 ```
 Check versions:
 ```
@@ -66,7 +61,6 @@ Add VS Code extensions:
 Also add from the terminal:
 ``` bash
 npm install prettier_plugin_tailwindcss
-npm install @astrojs/cloudflare
 ```
 
 ## MMF Reminders re: git

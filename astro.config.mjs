@@ -37,30 +37,20 @@ const viteConfig = {
 
 // https://astro.build/config
 export default defineConfig({
-
-    site: siteConfig.site,
-    adapter: siteConfig.adapter,
-    compressHTML: true,
-    integrations: [
-      compress(), 
-      icon({
-        include: {
-          lucide: ['*'],
-        }
-      }), 
-      siteConfig.starlightIntegration, 
-      mdx(), 
-      sitemap(),
-    ],
-    vite: viteConfig,
-    env: {
-      schema: {
-        BLOG_API_URL: envField.string({
-          context: 'server',
-          access: 'secret',
-          optional: true,
-          default: 'https://jsonplaceholder.typicode.com/posts',
-    }),
-  },
-},
+  site: siteConfig.site,
+  // [removed] adapter: siteConfig.adapter,
+  output: 'static', // added when moving to Amplify
+  compressHTML: true,
+  integrations: [
+    compress(), 
+    icon({
+      include: {
+        lucide: ['*'],
+      }
+    }), 
+    siteConfig.starlightIntegration, 
+    mdx(), 
+    sitemap(),
+  ],
+  vite: viteConfig,
 })
