@@ -11,11 +11,11 @@ const technicalPillars = [
   {
     index: "01",
     title: "Diverse Compute Fleet",
-    description: "You specify the list of allowable compute instances.",
+    description: "The \"what\" of Execution Efficiency.",
     items: [
-      "Configure your fleet with the smallest and largest instance types you want to use.",
-      "Specify a few instance types for your day-to-day workloads.",
-      "Icebreaker will pick the best instance for the current workload at the best price."
+        "Configure your fleet with a <strong>variety</strong> of instance types with different capabilities.",
+        "Prioritize instance types with <strong>FinOps-negotiated</strong> compute and savings plans.",  
+        "Icebreaker <strong>automatically picks</strong> the best instance for the current demand at the best price."
     ]
   },
   {
@@ -23,7 +23,8 @@ const technicalPillars = [
     title: "Ephemeral Pod Execution",
     description: "The \"where\" of Query Isolation.",
     items: [
-        "Every <strong>query is right-sized</strong> to use an instance with appropriate memory and CPU. The instance may be running other jobs and have idle capacity, or a new instance may be spun up.",
+        "Every <strong>query is right-sized</strong> to use an instance with appropriate memory and CPU.",
+        "Queries may be <strong>bin-packed</strong> on an instance with idle capacity, or a new instance may be spun up.",
         "Every <strong>query is secure</strong>, as it runs in its own isolated, ephemeral pod.",
     ]
   },
@@ -52,23 +53,23 @@ const technicalPillars = [
     <FullWidth>
         <div class="container grid md:grid-cols-2 gap-12 items-center">
             <div class="p-8 rounded-2xl shadow-xl border-t-4 border-(--primary-400)">
-                <h4 class="text-2xl font-bold mb-6 ">What's Wrong with Right-Sizing</h4>
+                <h4 class="text-2xl font-bold">What's Wrong with Right-Sizing</h4>
                 <ul class="list-warning text-lg space-y-4">
-                    <li>Warehouses and clusters are sized for aggregate workloads, using one type of compute instance.</li> 
+                    <li>Warehouses and clusters are sized for aggregate workloads, using the same size compute instance as it scales up.</li> 
                     <li>Individual queries have wildly different memory and compute requirements.</li>
-                    <li>Auto-scaling forces overpaying for compute that isn't optimal for individual queries.</li>
+                    <li>Auto-scaling with the same instance type forces overpaying for compute that is inefficient for individual queries.</li>
                 </ul>
             </div>
             <div>
                 <p class="text-xl opacity-80">
-                    It is impossible to match a conventional cluster or warehouse to actual demand. 
-                    You over-pay for idle compute that may not meet your performance goals.
+                    It's impossible to match a conventional cluster or warehouse to actual demand. 
+                    You over-pay for idle compute that may never meet your performance goals.
                 </p><br/>
                 
                 <p class="text-xl opacity-80">
                     With Icebreaker, every query runs in its own pod. You pay only for what you need. 
                     Plus: no shared memory, and no noisy neighbors. 
-                    That's how our <strong>serverles query platform</strong> eliminates the expense and risks that clusters can't.
+                    That's how our <strong>serverless query platform</strong> eliminates the expense and risks that clusters can't.
                 </p>
             </div>
         </div>
@@ -93,23 +94,25 @@ const technicalPillars = [
                         Conventional data warehouses and clusters are built on a shared process model. 
                         Whether you call it a Warehouse or a Spark Executor, multiple queries from different 
                         users co-exist within the same memory heap and CPU thread pool. 
-                        This architecture creates two systemic failures that attempts to "right-size" cannot fix.
                     </p><br/>
                     <hr><br/>
                     <p>
+                        The traditional cluster and warehouse architecture creates two systemic failures that attempts to right-size cannot fix.
+                    </p><br/>
+                    <p>
                         <strong>1. The Logical Boundary Failure. </strong>
-                        In a shared cluster, isolation is a "polite request" made by software. 
+                        In a shared cluster, isolation is a just request made by software. 
                         When a chatty AI agent submits thousands of rapid-fire queries, or somebody runs a massive, unoptimized join, 
                         those queries don't just run slowly—they consume the shared resources of every other query in that cluster. 
-                        Because they share a JVM, a single bad query can consume the entire environment's resources, crashing your production dashboards.
+                        Because they share a JVM, a single actor can consume the entire environment's resources, crashing your production dashboards.
                     </p><br/>
 
                     <p>
                         <strong>2. The Multi-Tenant Security Gap. </strong>
-                        Comprehensive security requires physical separation. 
-                        In a shared-process environment, sensitive data queries (like HR or Finance) share a memory space with general-purpose analytics. 
-                        If the engine's software-level access controls are bypassed, there is no physical "membrane" to prevent cross-query data leakage.
-                        (If you're curious to learn more, read this <Link href="https://www.amazon.science/publications/membrane-safe-and-performant-data-access-controls-in-apache-spark-in-the-presence-of-imperative-code" isExternal>research paper</Link>).
+                        Comprehensive security requires physical separation. This doesn't exist in contemporary architectures. 
+                        Instead, in these shared-process environments, sensitive data queries (like HR or Finance) share a memory space with general-purpose analytics. 
+                        If the engine's software-level access controls are bypassed, there is no physical membrane to prevent cross-query data leakage.
+                        (If you're curious to learn more, read this <Link href="https://www.amazon.science/publications/membrane-safe-and-performant-data-access-controls-in-apache-spark-in-the-presence-of-imperative-code" isExternal>academic research paper</Link>).
                     </p><br/>
                     <hr><br/>
                     <p>
@@ -140,7 +143,7 @@ const technicalPillars = [
                     <div class="rounded-lg bg-(--primary-500) p-6 text-white my-8">
                         <p class="m-0 italic">
                             Icebreaker uses the same query isolation pattern that hyperscalers use to protect their own multi-tenant services. 
-                            What was once their profit margin is now available for your private data cloud.
+                            What was once their profit margin is now available as efficiencies in your private data cloud.
                         </p>
                     </div>
                 </div>
