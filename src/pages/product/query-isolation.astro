@@ -98,16 +98,16 @@ const technicalPillars = [
                         The traditional cluster and warehouse architectures creates two <strong>systemic failures</strong> that attempts 
                         to right-size cannot fix:
                     </p><br/>
-                    <p class="!pl-8">
-                        <strong>1. The Logical Boundary Failure. </strong></br>
+                    <p class="pl-8!">
+                        <strong>1. The Logical Boundary Failure. </strong><br/>
                         In a shared cluster, isolation is a just request made by software. 
                         When a chatty AI agent submits thousands of rapid-fire queries, or somebody runs a massive, unoptimized join, 
                         those queries don't just run slowly—they consume the shared resources of every other query in that cluster. 
                         Because they share a JVM, a single actor can consume the entire environment's resources, crashing your production dashboards.
                     </p><br/>
 
-                    <p class="!pl-8">
-                        <strong>2. The Multi-Tenant Security Gap. </strong></br>
+                    <p class="pl-8!">
+                        <strong>2. The Multi-Tenant Security Gap. </strong><br/>
                         Comprehensive security requires physical separation. This doesn't exist in contemporary architectures. 
                         Instead, in these shared-process environments, sensitive data queries (like HR or Finance) share a memory space with general-purpose analytics. 
                         If the engine's software-level access controls are bypassed, there is no physical membrane to prevent cross-query data leakage.

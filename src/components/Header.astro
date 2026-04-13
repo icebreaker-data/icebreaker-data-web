@@ -82,9 +82,10 @@ import { Icon } from 'astro-icon/components'
         cursor: pointer;
         padding: 0.5rem 0.75rem;
         transition: color 0.2s ease;
-        
-        // Matches the Teal/Cyan from your "FinOps" button
-        color: var(--secondary-color, #5ce1e6); 
+        color: var(--action-color); 
+        &:hover {
+          color: var(--action-color-state)
+        }
       }
     }
 
