@@ -46,8 +46,8 @@ const {
 
         // light theme
         --font-color: var(--neutral-700);
-        --action-color: var(--primary-300);
-        --action-color-state: var(--primary-500);
+        --action-color: var(--primary-500);
+        --action-color-state: var(--secondary-500);
         --heading-color: var(--primary-500);
         --background: var(--neutral-100);
         --primary-background: var(--primary-100);
@@ -64,12 +64,15 @@ const {
         --primary-background: var(--primary-500);
         --neutral-background: var(--neutral-900);
       }
-      // Fix for links on light sections while in Dark Mode
-      .darkmode .bg-neutral-100 a:not(.button) {
-        --action-color: var(--primary-300);
-        &:hover {
-          color: var(--secondary-400);
-        }
+      /* Targets any link inside a container that has a light background, 
+        specifically when the rest of the site is in dark mode */
+        .darkmode [class*="bg-neutral-1"] a:not(.button),
+        .darkmode [class*="bg-white"] a:not(.button) {
+          color: var(--primary-500) !important;
+          &:hover {
+            color: var(--secondary-500) !important;
+            text-decoration: underline;
+         }
       }
 
       // sticky footer on low content pages
