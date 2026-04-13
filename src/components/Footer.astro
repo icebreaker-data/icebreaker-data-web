@@ -7,7 +7,7 @@ import { Link } from 'accessible-astro-components'
 const currentYear = new Date().getFullYear()
 ---
 
-<footer class="text-neutral-100">
+<footer class="text-(--font-color)">
   <div class="py-6 border-b border-white/50">
     <CallToAction />
   </div>
@@ -20,44 +20,44 @@ const currentYear = new Date().getFullYear()
           <Image src={logo} width='188' height='148' alt="Icebreaker Logo"/>
         </div>
         
-        <p class="text-xl text-neutral-200 leading-relaxed m-0 pl-8 max-w-md">
+        <p class="text-xl text-(--font-color) leading-relaxed m-0 pl-8 max-w-md">
           Provider-grade <strong>serverless automation</strong> with <strong>query-level unit economics</strong>. Secured in your private data cloud.
         </p>
       </div>
 
       <div class="md:col-span-4 grid grid-cols-2 gap-4">
         <nav>
-          <h4 class="text-secondary-300 text-xs font-bold uppercase tracking-widest mb-4 m-0">
+          <h4 class="text-(--heading-color) font-bold uppercase tracking-widest mb-4 m-0">
             Product
           </h4>
           <ul class="list-none p-0 mt-4 flex flex-col gap-2">
-            <li><a href="/product/technology-stack/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Tech Stack</a></li>
-            <li><a href="/product/query-isolation/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Query Isolation</a></li>
-            <li><a href="/product/demand-shaping/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Demand Shaping</a></li>
-            <li><a href="/product/performance/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Performance</a></li>
+            <li><a href="/product/technology-stack/" class="text-sm text-(--font-color) no-underline hover:text-(--action-color) transition-colors">Tech Stack</a></li>
+            <li><a href="/product/query-isolation/" class="text-sm text-(--font-color) no-underline hover:text-(--action-color) transition-colors">Query Isolation</a></li>
+            <li><a href="/product/demand-shaping/" class="text-sm text-(--font-color) no-underline hover:text-(--action-color) transition-colors">Demand Shaping</a></li>
+            <li><a href="/product/performance/" class="text-sm text-(--font-color) no-underline hover:text-(--action-color) transition-colors">Performance</a></li>
           </ul>
         </nav>
 
         <nav>
-          <h4 class="text-secondary-300 text-xs font-bold uppercase tracking-widest mb-4 m-0">
+          <h4 class="text-(--heading-color) font-bold uppercase tracking-widest mb-4 m-0">
             Company
           </h4>
           <ul class="list-none p-0 mt-4 flex flex-col gap-2">
-            <li><a href="/resources/about/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">About Us</a></li>
-            <li><a href="/resources/usecases/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Use Cases</a></li>
-            <li><a href="/resources/faq/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">FAQ</a></li>
-            <li><a href="/contact/" class="text-sm text-neutral-400 no-underline hover:text-white transition-colors">Contact Us</a></li>
+            <li><a href="/resources/about/" class="text-sm text-(--font-color) no-underline hover:text-(--action-color) transition-colors">About Us</a></li>
+            <li><a href="/resources/usecases/" class="text-sm text-(--font-color) no-underline hover:text-(--action-color) transition-colors">Use Cases</a></li>
+            <li><a href="/resources/faq/" class="text-sm text-(--font-color) no-underline hover:text-(--action-color) transition-colors">FAQ</a></li>
+            <li><a href="/contact/" class="text-sm text-(--font-color) no-underline hover:text-(--action-color) transition-colors">Contact Us</a></li>
           </ul>
         </nav>
       </div>
     </div>
 
     <div class="border-t border-white/10 py-2 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-neutral-400 text-sm m-0">
+      <p class="text-(--font-color) text-sm m-0">
         &copy; {currentYear} Icebreaker Data, Inc. All rights reserved.
       </p>
       <div class="flex items-center gap-6">
-        <Link href="https://www.flaticon.com/" isExternal class="text-[10px] uppercase tracking-tighter text-neutral-700 no-underline hover:text-neutral-400">
+        <Link href="https://www.flaticon.com/" isExternal class="text-[10px] uppercase tracking-tighter text-(--font-color) no-underline text-(--action-color)">
           Icons by HAJICON
         </Link>
       </div>
